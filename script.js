@@ -1,55 +1,47 @@
-function showRegister() {
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("registerForm").style.display = "block";
-}
-
-function showLogin() {
-  document.getElementById("registerForm").style.display = "none";
-  document.getElementById("loginForm").style.display = "block";
-}
-
 function register() {
-  let user = document.getElementById("registerUsername").value;
-  let pass = document.getElementById("registerPassword").value;
+  let user = document.getElementById("regUser").value;
+  let pass = document.getElementById("regPass").value;
 
   if (user && pass) {
-    localStorage.setItem("user_"+user, pass);
+    localStorage.setItem("chatzUser", user);
+    localStorage.setItem("chatzPass", pass);
     alert("Pendaftaran berhasil! Silakan login.");
-    showLogin();
+    window.location.href = "index.html";
   } else {
-    alert("Isi semua field!");
+    alert("Isi semua form!");
   }
 }
 
 function login() {
-  let user = document.getElementById("loginUsername").value;
-  let pass = document.getElementById("loginPassword").value;
+  let user = document.getElementById("loginUser").value;
+  let pass = document.getElementById("loginPass").value;
+  let savedUser = localStorage.getItem("chatzUser");
+  let savedPass = localStorage.getItem("chatzPass");
 
-  let savedPass = localStorage.getItem("user_"+user);
-
-  if (savedPass && savedPass === pass) {
-    alert("Login berhasil!");
-    document.getElementById("loginForm").style.display = "none";
-    document.getElementById("chatRoom").style.display = "block";
+  if (user === savedUser && pass === savedPass) {
+    alert("Login berhasil! Selamat datang " + user);
+    localStorage.setItem("loggedInUser", user);
+    window.location.href = "chat.html";
   } else {
-    alert("Username/Password salah!");
+    alert("Username atau password salah!");
+  }
+}
+
+function sendMessage() {
+  let msg = document.getElementById("message").value;
+  let chatBox = document.getElementById("chatBox");
+  let user = localStorage.getItem("loggedInUser");
+
+  if (msg.trim() !== "") {
+    let p = document.createElement("p");
+    p.textContent = user + ": " + msg;
+    chatBox.appendChild(p);
+    document.getElementById("message").value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
   }
 }
 
 function logout() {
-  document.getElementById("chatRoom").style.display = "none";
-  document.getElementById("loginForm").style.display = "block";
-}
-
-function sendMessage() {
-  let msgBox = document.getElementById("messages");
-  let input = document.getElementById("messageInput");
-
-  if (input.value.trim() !== "") {
-    let p = document.createElement("p");
-    p.textContent = input.value;
-    msgBox.appendChild(p);
-    input.value = "";
-    msgBox.scrollTop = msgBox.scrollHeight;
-  }
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "index.html";
 }
