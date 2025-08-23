@@ -1,97 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chatz - Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    #container {
-      width: 95%;
-      max-width: 400px;
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    h2 { text-align: center; margin-bottom: 20px; }
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 8px;
-      background: #66a6ff;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    #chat-box {
-      height: 300px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      margin: 10px 0;
-      padding: 10px;
-      background: #f9f9f9;
-    }
-    .msg {
-      margin: 5px 0;
-      padding: 8px 12px;
-      border-radius: 20px;
-      max-width: 80%;
-      word-wrap: break-word;
-    }
-    .me { background: #66a6ff; color: white; margin-left: auto; }
-    .other { background: #ddd; }
-  </style>
+  <title>Chatz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="container">
-    <!-- Login -->
-    <div id="login-box">
+  <div id="app">
+    <!-- Form Login -->
+    <div id="loginForm">
       <h2>Login</h2>
-      <input type="text" id="login-username" placeholder="Username">
-      <input type="password" id="login-password" placeholder="Password">
-      <button id="login-btn">Masuk</button>
-      <p style="text-align:center;">Belum punya akun? <a href="#" id="go-register">Daftar</a></p>
+      <input type="text" id="loginUsername" placeholder="Username"><br>
+      <input type="password" id="loginPassword" placeholder="Password"><br>
+      <button onclick="login()">Masuk</button>
+      <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar</a></p>
     </div>
 
-    <!-- Register -->
-    <div id="register-box" style="display:none;">
-      <h2>Daftar</h2>
-      <input type="text" id="reg-username" placeholder="Username">
-      <input type="password" id="reg-password" placeholder="Password">
-      <button id="register-btn">Daftar</button>
-      <p style="text-align:center;">Sudah punya akun? <a href="#" id="go-login">Login</a></p>
+    <!-- Form Register -->
+    <div id="registerForm" style="display:none;">
+      <h2>Daftar Akun</h2>
+      <input type="text" id="registerUsername" placeholder="Username"><br>
+      <input type="password" id="registerPassword" placeholder="Password"><br>
+      <button onclick="register()">Daftar</button>
+      <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login</a></p>
     </div>
 
-    <!-- Chat -->
-    <div id="chat-box-container" style="display:none;">
-      <h2>Chatz 💬</h2>
-      <div id="chat-box"></div>
-      <input type="text" id="message" placeholder="Tulis pesan...">
-      <button id="send">Kirim</button>
+    <!-- Chat Room -->
+    <div id="chatRoom" style="display:none;">
+      <h2>Selamat datang di Chatz</h2>
+      <div id="messages"></div>
+      <input type="text" id="messageInput" placeholder="Ketik pesan...">
+      <button onclick="sendMessage()">Kirim</button>
+      <br><br>
+      <button onclick="logout()">Logout</button>
     </div>
   </div>
-
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
   <script src="script.js"></script>
 </body>
 </html>
