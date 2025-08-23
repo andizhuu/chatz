@@ -1,51 +1,22 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BebekChating - Home</title>
-  <style>
-    nav { margin-bottom: 20px; }
-    nav button { margin-right: 10px; }
-    section { display: none; }
-    section.active { display: block; }
-    #messages { border: 1px solid #ddd; padding: 10px; height: 200px; overflow-y: auto; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatz - Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>BebekChating 🦆</h2>
-  <nav>
-    <button onclick="showPage('beranda')">Beranda</button>
-    <button onclick="showPage('profil')">Profil</button>
-    <button onclick="showPage('chat')">Chat</button>
-  </nav>
-
-  <!-- Beranda -->
-  <section id="beranda" class="active">
-    <h3>Selamat Datang</h3>
-    <p id="welcome"></p>
-  </section>
-
-  <!-- Profil -->
-  <section id="profil">
-    <h3>Profil</h3>
-    <p>Email: <span id="userEmail"></span></p>
-    <button id="logoutBtn">Logout</button>
-  </section>
-
-  <!-- Chat -->
-  <section id="chat">
-    <h3>Chat Room</h3>
-    <div id="messages"></div>
-    <input type="text" id="messageInput" placeholder="Tulis pesan...">
-    <button id="sendBtn">Kirim</button>
-  </section>
+  <div class="card chat">
+    <h1 class="title">💬 Chatz</h1>
+    <div id="messages" class="messages"></div>
+    <div class="input-box">
+      <input type="text" id="messageInput" placeholder="Tulis pesan..." />
+      <button onclick="sendMessage()">Kirim</button>
+    </div>
+    <button onclick="logout()" class="logout">🚪 Logout</button>
+  </div>
 
   <script type="module" src="script.js"></script>
-  <script>
-    function showPage(pageId) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(pageId).classList.add("active");
-    }
-  </script>
 </body>
 </html>

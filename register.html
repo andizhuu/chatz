@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register - BebekChating</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatz - Register</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Register</h2>
-  <input type="email" id="registerEmail" placeholder="Email">
-  <input type="password" id="registerPassword" placeholder="Password">
-  <button id="registerBtn">Daftar</button>
-  <p>Sudah punya akun? <a href="index.html">Login</a></p>
+  <div class="card">
+    <h1 class="title">📝 Register</h1>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="register()">Register</button>
+    <p>Sudah punya akun? <a href="index.html">Login</a></p>
+  </div>
 
   <script type="module" src="script.js"></script>
 </body>
