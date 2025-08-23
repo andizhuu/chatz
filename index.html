@@ -1,23 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Chatz - Login</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Login - BebekChating</title>
 </head>
 <body>
-  <div class="container">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label>Username:</label>
-      <input type="text" id="loginUsername" required>
-      <label>Password:</label>
-      <input type="password" id="loginPassword" required>
-      <button type="submit">Masuk</button>
-    </form>
-    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
-    <p id="loginError" class="error"></p>
-  </div>
-  <script src="script.js"></script>
+  <h2>Login</h2>
+  <input type="email" id="loginEmail" placeholder="Email">
+  <input type="password" id="loginPassword" placeholder="Password">
+  <button id="loginBtn">Login</button>
+  <p>Belum punya akun? <a href="register.html">Daftar</a></p>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>

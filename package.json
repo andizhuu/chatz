@@ -1,0 +1,21 @@
+{
+  "name": "chatz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andizhuu/chatz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/andizhuu/chatz/issues"
+  },
+  "homepage": "https://github.com/andizhuu/chatz#readme"
+}
