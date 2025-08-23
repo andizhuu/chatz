@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chatz - Daftar</title>
+  <title>Chatz - Register</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h2>Daftar Akun</h2>
-    <form onsubmit="register(); return false;">
-      <input type="text" id="regUser" placeholder="Username" required>
-      <input type="password" id="regPass" placeholder="Password" required>
+    <form id="registerForm">
+      <label>Username:</label>
+      <input type="text" id="registerUsername" required>
+      <label>Password:</label>
+      <input type="password" id="registerPassword" required>
       <button type="submit">Daftar</button>
     </form>
     <p>Sudah punya akun? <a href="index.html">Login</a></p>
+    <p id="registerError" class="error"></p>
   </div>
   <script src="script.js"></script>
 </body>

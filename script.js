@@ -1,47 +1,65 @@
-function register() {
-  let user = document.getElementById("regUser").value;
-  let pass = document.getElementById("regPass").value;
+// Simpan akun di localStorage
+function saveUser(username, password) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  users.push({ username, password });
+  localStorage.setItem("users", JSON.stringify(users));
+}
 
-  if (user && pass) {
-    localStorage.setItem("chatzUser", user);
-    localStorage.setItem("chatzPass", pass);
+// Cek login
+function checkLogin(username, password) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  return users.find(user => user.username === username && user.password === password);
+}
+
+// Register
+const registerForm = document.getElementById("registerForm");
+if (registerForm) {
+  registerForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const username = document.getElementById("registerUsername").value;
+    const password = document.getElementById("registerPassword").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    if (users.find(u => u.username === username)) {
+      document.getElementById("registerError").innerText = "Username sudah dipakai!";
+      return;
+    }
+
+    saveUser(username, password);
     alert("Pendaftaran berhasil! Silakan login.");
     window.location.href = "index.html";
+  });
+}
+
+// Login
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const username = document.getElementById("loginUsername").value;
+    const password = document.getElementById("loginPassword").value;
+
+    if (checkLogin(username, password)) {
+      localStorage.setItem("currentUser", username);
+      window.location.href = "home.html";
+    } else {
+      document.getElementById("loginError").innerText = "Username atau password salah!";
+    }
+  });
+}
+
+// Tampilkan username di home
+if (window.location.pathname.includes("home.html")) {
+  const user = localStorage.getItem("currentUser");
+  if (user) {
+    document.getElementById("userWelcome").innerText = user;
   } else {
-    alert("Isi semua form!");
+    window.location.href = "index.html";
   }
 }
 
-function login() {
-  let user = document.getElementById("loginUser").value;
-  let pass = document.getElementById("loginPass").value;
-  let savedUser = localStorage.getItem("chatzUser");
-  let savedPass = localStorage.getItem("chatzPass");
-
-  if (user === savedUser && pass === savedPass) {
-    alert("Login berhasil! Selamat datang " + user);
-    localStorage.setItem("loggedInUser", user);
-    window.location.href = "chat.html";
-  } else {
-    alert("Username atau password salah!");
-  }
-}
-
-function sendMessage() {
-  let msg = document.getElementById("message").value;
-  let chatBox = document.getElementById("chatBox");
-  let user = localStorage.getItem("loggedInUser");
-
-  if (msg.trim() !== "") {
-    let p = document.createElement("p");
-    p.textContent = user + ": " + msg;
-    chatBox.appendChild(p);
-    document.getElementById("message").value = "";
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-}
-
+// Logout
 function logout() {
-  localStorage.removeItem("loggedInUser");
+  localStorage.removeItem("currentUser");
   window.location.href = "index.html";
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Chatz - Login</title>
@@ -7,13 +7,16 @@
 </head>
 <body>
   <div class="container">
-    <h2>Masuk</h2>
-    <form onsubmit="login(); return false;">
-      <input type="text" id="loginUser" placeholder="Username" required>
-      <input type="password" id="loginPass" placeholder="Password" required>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label>Username:</label>
+      <input type="text" id="loginUsername" required>
+      <label>Password:</label>
+      <input type="password" id="loginPassword" required>
       <button type="submit">Masuk</button>
     </form>
     <p>Belum punya akun? <a href="register.html">Daftar</a></p>
+    <p id="loginError" class="error"></p>
   </div>
   <script src="script.js"></script>
 </body>
