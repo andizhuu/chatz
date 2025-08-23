@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chatz</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; text-align: center; }
+    #chat-box { border: 1px solid #ccc; background: #fff; height: 300px; overflow-y: scroll; padding: 10px; margin: 10px auto; width: 90%; max-width: 500px; text-align: left; }
+    #message { width: 70%; padding: 8px; }
+    #send { padding: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Chatz 💬</h2>
+  <div id="chat-box"></div>
+  <input type="text" id="message" placeholder="Tulis pesan...">
+  <button id="send">Kirim</button>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
