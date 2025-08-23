@@ -2,117 +2,93 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Chatz</title>
+  <title>Chatz - Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      margin: 0;
-      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
-    #chat-container {
+    #container {
       width: 95%;
-      max-width: 500px;
+      max-width: 400px;
       background: white;
       border-radius: 15px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    #header {
+    h2 { text-align: center; margin-bottom: 20px; }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
       background: #66a6ff;
       color: white;
-      padding: 12px;
-      font-size: 18px;
       font-weight: bold;
-      text-align: center;
+      cursor: pointer;
     }
     #chat-box {
-      flex: 1;
-      padding: 15px;
+      height: 300px;
       overflow-y: auto;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      padding: 10px;
       background: #f9f9f9;
     }
     .msg {
       margin: 5px 0;
       padding: 8px 12px;
       border-radius: 20px;
-      display: inline-block;
       max-width: 80%;
       word-wrap: break-word;
     }
-    .me {
-      background: #66a6ff;
-      color: white;
-      align-self: flex-end;
-    }
-    .other {
-      background: #e0e0e0;
-      color: black;
-      align-self: flex-start;
-    }
-    #input-area {
-      display: flex;
-      border-top: 1px solid #ddd;
-    }
-    #message {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      outline: none;
-    }
-    #send {
-      background: #66a6ff;
-      border: none;
-      color: white;
-      padding: 0 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    #username-box {
-      text-align: center;
-      padding: 20px;
-    }
-    #username-input {
-      padding: 10px;
-      width: 70%;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    #start-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: none;
-      background: #66a6ff;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+    .me { background: #66a6ff; color: white; margin-left: auto; }
+    .other { background: #ddd; }
   </style>
 </head>
 <body>
-  <div id="chat-container">
-    <div id="header">Chatz 💬</div>
-    <div id="username-box">
-      <h3>Masukkan Username</h3>
-      <input type="text" id="username-input" placeholder="Contoh: Bebek">
-      <br>
-      <button id="start-btn">Mulai Chat</button>
+  <div id="container">
+    <!-- Login -->
+    <div id="login-box">
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username">
+      <input type="password" id="login-password" placeholder="Password">
+      <button id="login-btn">Masuk</button>
+      <p style="text-align:center;">Belum punya akun? <a href="#" id="go-register">Daftar</a></p>
     </div>
-    <div id="chat-box" style="display:none;"></div>
-    <div id="input-area" style="display:none;">
+
+    <!-- Register -->
+    <div id="register-box" style="display:none;">
+      <h2>Daftar</h2>
+      <input type="text" id="reg-username" placeholder="Username">
+      <input type="password" id="reg-password" placeholder="Password">
+      <button id="register-btn">Daftar</button>
+      <p style="text-align:center;">Sudah punya akun? <a href="#" id="go-login">Login</a></p>
+    </div>
+
+    <!-- Chat -->
+    <div id="chat-box-container" style="display:none;">
+      <h2>Chatz 💬</h2>
+      <div id="chat-box"></div>
       <input type="text" id="message" placeholder="Tulis pesan...">
       <button id="send">Kirim</button>
     </div>
   </div>
 
-  <!-- Firebase SDK -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
