@@ -1,50 +1,82 @@
-/* Style untuk halaman login */
+/* Background full dengan gradien biru-ungu */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+/* Container login dengan efek timbul */
 .login-container {
-  max-width: 350px;
-  margin: 100px auto;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  background: #fff;
+  width: 350px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: #f0f0f3;
+  box-shadow: 9px 9px 16px rgba(0,0,0,0.25),
+              -9px -9px 16px rgba(255,255,255,0.8);
   text-align: center;
 }
 
+/* Judul Login */
 .login-container h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 26px;
+  margin-bottom: 25px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
 
+/* Input dengan efek timbul */
 .login-container input {
   width: 100%;
   padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2),
+              inset -5px -5px 10px rgba(255,255,255,0.8);
+  font-size: 15px;
 }
 
+/* Tombol Login dengan gradien biru-ungu */
 .login-container button {
   width: 100%;
   padding: 12px;
-  background: #1877f2;
+  margin-top: 15px;
   border: none;
-  border-radius: 8px;
-  color: white;
+  border-radius: 12px;
   font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
   cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.3),
+              -4px -4px 12px rgba(255,255,255,0.3);
 }
 
 .login-container button:hover {
-  background: #145db2;
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 14px rgba(0,0,0,0.35),
+              -6px -6px 14px rgba(255,255,255,0.35);
+}
+
+/* Link ke Register */
+.login-container p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
 }
 
 .login-container a {
-  display: block;
-  margin-top: 15px;
-  color: #1877f2;
+  color: #4e54c8;
+  font-weight: bold;
   text-decoration: none;
 }
 
