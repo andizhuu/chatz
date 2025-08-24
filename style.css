@@ -1,52 +1,53 @@
-/* Navbar ala FB lebih rapi */
-.navbar {
-  background: #1877f2;
-  color: white;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* Style untuk halaman login */
+.login-container {
+  max-width: 350px;
+  margin: 100px auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #fff;
+  text-align: center;
 }
 
-.navbar .logo {
+.login-container h2 {
+  margin-bottom: 20px;
   font-size: 22px;
   font-weight: bold;
-  margin-right: 30px;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px; /* Jarak antar menu */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-size: 17px;   /* lebih besar */
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.nav-links li a:hover {
-  text-decoration: underline;
-}
-
-/* Tombol logout */
-.logout-btn {
-  background: #f02849;
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: #1877f2;
   border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 10px;
   transition: 0.3s;
 }
 
-.logout-btn:hover {
-  background: #d91a34;
+.login-container button:hover {
+  background: #145db2;
+}
+
+.login-container a {
+  display: block;
+  margin-top: 15px;
+  color: #1877f2;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
 }
