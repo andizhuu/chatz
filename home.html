@@ -20,10 +20,7 @@
       background: linear-gradient(135deg, #4a00e0, #8e2de2);
       padding: 12px 30px;
       color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      box-sizing: border-box;
     }
 
     .navbar .logo {
@@ -32,19 +29,13 @@
       letter-spacing: 1px;
     }
 
-    .navbar ul {
-      list-style: none;
+    .navbar-menu {
       display: flex;
       gap: 20px;
-      margin: 0;
-      padding: 0;
+      margin-left: auto; /* dorong menu ke kanan */
     }
 
-    .navbar ul li {
-      display: inline;
-    }
-
-    .navbar ul li a {
+    .navbar-menu a {
       text-decoration: none;
       color: white;
       font-size: 16px;
@@ -54,7 +45,7 @@
       transition: background 0.3s;
     }
 
-    .navbar ul li a:hover {
+    .navbar-menu a:hover {
       background: rgba(255, 255, 255, 0.25);
     }
 
@@ -82,13 +73,13 @@
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">Chatz</div>
-    <ul>
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Teman</a></li>
-      <li><a href="#">Pesan</a></li>
-      <li><a href="#">Notifikasi</a></li>
-      <li><a href="index.html">Logout</a></li>
-    </ul>
+    <div class="navbar-menu">
+      <a href="#">Beranda</a>
+      <a href="#">Teman</a>
+      <a href="#">Pesan</a>
+      <a href="#">Notifikasi</a>
+      <a href="index.html">Logout</a>
+    </div>
   </div>
 
   <!-- Konten -->
