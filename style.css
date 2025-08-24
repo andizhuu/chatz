@@ -1,85 +1,81 @@
-/* Background full dengan gradien biru-ungu */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
+  padding: 0;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  height: 100vh;
 }
 
-/* Container login dengan efek timbul */
-.login-container {
-  width: 350px;
-  padding: 40px 30px;
-  border-radius: 20px;
-  background: #f0f0f3;
-  box-shadow: 9px 9px 16px rgba(0,0,0,0.25),
-              -9px -9px 16px rgba(255,255,255,0.8);
+.form-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+  width: 300px;
   text-align: center;
 }
 
-/* Judul Login */
-.login-container h2 {
-  font-size: 26px;
-  margin-bottom: 25px;
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
+.form-container h2 {
+  color: #4a00e0;
+  margin-bottom: 20px;
 }
 
-/* Input dengan efek timbul */
-.login-container input {
-  width: 100%;
-  padding: 12px;
-  margin: 12px 0;
-  border: none;
-  border-radius: 12px;
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   outline: none;
-  background: #e0e0e0;
-  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.2),
-              inset -5px -5px 10px rgba(255,255,255,0.8);
-  font-size: 15px;
 }
 
-/* Tombol Login dengan gradien biru-ungu */
-.login-container button {
+button {
   width: 100%;
   padding: 12px;
-  margin-top: 15px;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 4px 4px 12px rgba(0,0,0,0.3),
-              -4px -4px 12px rgba(255,255,255,0.3);
+  font-size: 16px;
+  margin-top: 10px;
+  transition: transform 0.2s;
 }
 
-.login-container button:hover {
-  transform: translateY(-3px);
-  box-shadow: 6px 6px 14px rgba(0,0,0,0.35),
-              -6px -6px 14px rgba(255,255,255,0.35);
+button:hover {
+  transform: scale(1.05);
 }
 
-/* Link ke Register */
-.login-container p {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #555;
-}
-
-.login-container a {
-  color: #4e54c8;
-  font-weight: bold;
+p a {
+  color: #8e2de2;
   text-decoration: none;
 }
 
-.login-container a:hover {
-  text-decoration: underline;
+.navbar {
+  background: #4a00e0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.content {
+  padding: 30px;
+  text-align: center;
 }

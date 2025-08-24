@@ -1,53 +1,57 @@
-// --- Inisialisasi Firebase ---
-// (isi sesuai config Firebase project kamu)
+// Firebase Config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAC-M7ZAVJtsdBzvjPllaa5j_9j-bfsjbY",
+  authDomain: "chatz-16cd9.firebaseapp.com",
+  projectId: "chatz-16cd9",
+  storageBucket: "chatz-16cd9.firebasestorage.app",
+  messagingSenderId: "1012938581248",
+  appId: "1:1012938581248:web:e24b05a3576c1945123fe5",
+  measurementId: "G-EYYLZRNBW9"
 };
 
-// Cek kalau belum diinisialisasi
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+// Init Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-// --- LOGIN ---
-const loginForm = document.getElementById("loginForm");
-if (loginForm) {
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+// Login
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = "home.html";
+        })
+        .catch(err => alert(err.message));
+    });
+  }
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => {
-        alert("Login berhasil!");
-        window.location.href = "home.html"; // halaman setelah login
-      })
-      .catch((error) => {
-        alert("Login gagal: " + error.message);
+  // Register
+  const registerForm = document.getElementById("registerForm");
+  if (registerForm) {
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("registerEmail").value;
+      const password = document.getElementById("registerPassword").value;
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = "home.html";
+        })
+        .catch(err => alert(err.message));
+    });
+  }
+
+  // Logout
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      auth.signOut().then(() => {
+        window.location.href = "index.html";
       });
-  });
-}
-
-// --- REGISTER ---
-const registerForm = document.getElementById("registerForm");
-if (registerForm) {
-  registerForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        alert("Registrasi berhasil!");
-        window.location.href = "home.html"; // langsung ke home
-      })
-      .catch((error) => {
-        alert("Registrasi gagal: " + error.message);
-      });
-  });
-}
+    });
+  }
+});

@@ -2,49 +2,29 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beranda - Chatz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
+  <nav class="navbar">
     <div class="logo">Chatz</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Beranda</a></li>
-        <li><a href="#">Teman</a></li>
-        <li><a href="#">Pesan</a></li>
-        <li><a href="#">Notifikasi</a></li>
-      </ul>
-    </nav>
-    <button id="logoutBtn" class="logout-btn">Logout</button>
-  </header>
+    <ul>
+      <li><a href="#">Beranda</a></li>
+      <li><a href="#">Teman</a></li>
+      <li><a href="#">Pesan</a></li>
+      <li><a href="#">Notifikasi</a></li>
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+    </ul>
+  </nav>
 
-  <!-- Konten -->
-  <main class="container">
-    <div class="welcome-card">
-      <h2>👋 Selamat Datang di Chatz</h2>
-      <p>Ini adalah halaman beranda setelah login berhasil.</p>
-    </div>
+  <div class="content">
+    <h2>Selamat datang di Chatz 🎉</h2>
+    <p>Kamu berhasil login!</p>
+  </div>
 
-    <div class="post-card">
-      <textarea id="postInput" placeholder="Apa yang kamu pikirkan?"></textarea>
-      <button class="post-btn" id="postBtn">Kirim</button>
-    </div>
-
-    <div class="feed" id="feed">
-      <div class="feed-item">
-        <h3>Andi</h3>
-        <p>Halo semua, ini postingan pertama saya di Chatz! 🎉</p>
-      </div>
-      <div class="feed-item">
-        <h3>User</h3>
-        <p>Selamat datang di aplikasi chat sederhana ini 😎</p>
-      </div>
-    </div>
-  </main>
-
-  <script type="module" src="script.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
