@@ -2,29 +2,100 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Beranda - Chatz</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatz - Beranda</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #4a00e0, #8e2de2);
+      padding: 10px 20px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      display: inline;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Konten */
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card {
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      color: #4a00e0;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
+  <!-- Navbar -->
+  <div class="navbar">
     <div class="logo">Chatz</div>
     <ul>
       <li><a href="#">Beranda</a></li>
       <li><a href="#">Teman</a></li>
       <li><a href="#">Pesan</a></li>
       <li><a href="#">Notifikasi</a></li>
-      <li><a href="#" id="logoutBtn">Logout</a></li>
+      <li><a href="index.html">Logout</a></li>
     </ul>
-  </nav>
-
-  <div class="content">
-    <h2>Selamat datang di Chatz 🎉</h2>
-    <p>Kamu berhasil login!</p>
   </div>
 
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="script.js"></script>
+  <!-- Konten -->
+  <div class="content">
+    <div class="card">
+      <h2>Selamat Datang di Chatz!</h2>
+      <p>Ini adalah halaman beranda setelah berhasil login.</p>
+    </div>
+  </div>
 </body>
 </html>
