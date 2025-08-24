@@ -1,69 +1,68 @@
-// script.js
-import { auth, db } from "./firebase.js";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut
-} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-import {
-  doc,
-  setDoc
-} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+// Import Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } 
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// ================= REGISTER =================
+// Config Firebase (punyamu)
+const firebaseConfig = {
+  apiKey: "AIzaSyAC-M7ZAVJtsdBzvjPllaa5j_9j-bfsjbY",
+  authDomain: "chatz-16cd9.firebaseapp.com",
+  projectId: "chatz-16cd9",
+  storageBucket: "chatz-16cd9.firebasestorage.app",
+  messagingSenderId: "1012938581248",
+  appId: "1:1012938581248:web:e24b05a3576c1945123fe5",
+  measurementId: "G-EYYLZRNBW9"
+};
+
+// Init Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// ====================== REGISTER ======================
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
-  registerForm.addEventListener("submit", async (e) => {
+  registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = registerForm["email"].value;
-    const password = registerForm["password"].value;
-    const username = registerForm["username"].value;
+    const email = document.getElementById("registerEmail").value;
+    const password = document.getElementById("registerPassword").value;
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        email,
-        username
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("✅ Akun berhasil dibuat!");
+        window.location.href = "index.html"; // balik ke login
+      })
+      .catch((error) => {
+        alert("❌ Error: " + error.message);
       });
-
-      alert("Registrasi berhasil! Silakan login.");
-      window.location.href = "index.html";
-    } catch (error) {
-      alert("Error Register: " + error.message);
-    }
   });
 }
 
-// ================= LOGIN =================
+// ====================== LOGIN ======================
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
-  loginForm.addEventListener("submit", async (e) => {
+  loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = loginForm["email"].value;
-    const password = loginForm["password"].value;
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "home.html";
-    } catch (error) {
-      alert("Error Login: " + error.message);
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        alert("✅ Login berhasil!");
+        window.location.href = "home.html"; // 🚀 redirect ke beranda
+      })
+      .catch((error) => {
+        alert("❌ Error: " + error.message);
+      });
   });
 }
 
-// ================= LOGOUT =================
+// ====================== LOGOUT ======================
 const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
-  logoutBtn.addEventListener("click", async () => {
-    try {
-      await signOut(auth);
-      alert("Logout berhasil!");
-      window.location.href = "index.html";
-    } catch (error) {
-      alert("Error Logout: " + error.message);
-    }
+  logoutBtn.addEventListener("click", () => {
+    signOut(auth).then(() => {
+      alert("✅ Logout berhasil!");
+      window.location.href = "index.html"; // balik ke login
+    });
   });
 }

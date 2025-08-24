@@ -1,27 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .card {
   background: #fff;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
-  width: 90%;
-  max-width: 400px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   text-align: center;
+  width: 300px;
 }
 
-.title {
+.card h2 {
   margin-bottom: 20px;
   color: #333;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 input {
@@ -29,56 +32,34 @@ input {
   padding: 12px;
   margin: 10px 0;
   border: none;
-  border-radius: 12px;
-  box-shadow: inset 2px 2px 5px #ccc, inset -2px -2px 5px #fff;
-  font-size: 16px;
+  outline: none;
+  border-radius: 10px;
+  background: #f1f1f1;
+  font-size: 14px;
 }
 
 button {
   width: 100%;
   padding: 12px;
-  margin-top: 10px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #667eea;
   color: white;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-  transition: transform 0.2s;
+  transition: 0.3s;
 }
 
 button:hover {
-  transform: translateY(-2px);
+  background: #5a67d8;
 }
 
-.chat {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 12px;
-  background: #f5f5f5;
-  box-shadow: inset 2px 2px 6px rgba(0,0,0,0.1);
-}
-
-.input-box {
-  display: flex;
-  gap: 10px;
-}
-
-.input-box input {
-  flex: 1;
-}
-
-.logout {
+p {
   margin-top: 15px;
-  background: #e74c3c;
-  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+  font-size: 14px;
+}
+
+a {
+  color: #667eea;
+  text-decoration: none;
 }
