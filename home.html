@@ -7,136 +7,60 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f3f3f9;
-    }
-
-    /* === NAVBAR === */
-    .navbar {
-      width: 100%;
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(90deg, #4a00e0, #8e2de2);
-      padding: 12px 20px;
-      color: white;
-      box-sizing: border-box;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 10;
-    }
-
-    .logo-menu {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .logo-menu a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .logo-menu a:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-
-    .navbar-menu {
-      display: flex;
-      justify-content: flex-end;
-      flex: 1;
-      gap: 15px;
-    }
-
-    .navbar-menu a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .navbar-menu a:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-
-    /* === BURGER MENU (MOBILE) === */
-    .menu-toggle {
-      display: none;
       flex-direction: column;
-      cursor: pointer;
+      min-height: 100vh;
     }
 
-    .menu-toggle span {
-      width: 28px;
-      height: 3px;
-      background: white;
-      margin: 4px 0;
-      border-radius: 2px;
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #4a00e0, #8e2de2);
+      padding: 10px 20px;
+      color: white;
     }
 
-    /* === CONTENT === */
-    .container {
-      padding: 30px;
-      text-align: center;
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .welcome {
-      font-size: 26px;
+    .navbar .menu a {
+      color: white;
+      text-decoration: none;
       font-weight: bold;
-      color: #333;
-      margin-bottom: 20px;
+      transition: 0.3s;
     }
 
-    .card {
-      background: white;
-      border-radius: 12px;
+    .navbar .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Konten utama */
+    .content {
+      flex: 1;
       padding: 20px;
-      max-width: 600px;
-      margin: 20px auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    /* === RESPONSIVE RULES === */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-wrap: wrap;
-      }
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #222;
+      color: white;
+      padding: 10px 0;
+      font-size: 14px;
+    }
 
-      .navbar-menu {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        margin-top: 10px;
-      }
-
-      .navbar-menu a {
-        text-align: center;
-        padding: 12px;
-        width: 100%;
-      }
-
-      .navbar-menu.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
+    /* Responsif */
+    @media (max-width: 600px) {
+      .navbar .menu {
+        gap: 10px;
+        font-size: 14px;
       }
     }
   </style>
@@ -144,36 +68,24 @@
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <div class="logo-menu">
-      <div class="logo">Chatz</div>
-      <a href="#">Beranda</a>
-      <a href="#">Teman</a>
-      <a href="#">Pesan</a>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="navbar-menu" id="menu">
-      <a href="#">Notifikasi</a>
+    <div class="menu">
+      <a href="home.html">Beranda</a>
+      <a href="friends.html">Teman</a>
+      <a href="messages.html">Pesan</a>
+      <a href="notifications.html">Notifikasi</a>
       <a href="index.html">Logout</a>
     </div>
   </div>
 
-  <!-- Content -->
-  <div class="container">
-    <div class="welcome">Selamat Datang di Chatz!</div>
-    <div class="card">
-      <p>Ini adalah halaman beranda setelah login berhasil.</p>
-      <p>Kamu bisa mulai menjelajahi menu di atas 🚀</p>
-    </div>
+  <!-- Konten -->
+  <div class="content">
+    <h1>Selamat datang di Chatz 🎉</h1>
+    <p>Ini adalah halaman beranda. Kamu bisa mulai menggunakan fitur aplikasi.</p>
   </div>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-    }
-  </script>
+  <!-- Footer -->
+  <footer>
+    © 2025 Chatz - Aplikasi Chat Sederhana
+  </footer>
 </body>
 </html>
