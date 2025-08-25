@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: #f3f3f3;
       display: flex;
       flex-direction: column;
@@ -17,23 +17,22 @@
     /* Navbar */
     .navbar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
       background: linear-gradient(90deg, #4a00e0, #8e2de2);
-      padding: 10px 20px;
-      color: white;
+      padding: 12px 20px;
     }
 
     .navbar .menu {
       display: flex;
-      gap: 20px;
+      gap: 25px;
       flex-wrap: wrap;
     }
 
     .navbar .menu a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 16px;
       transition: 0.3s;
     }
 
@@ -45,6 +44,16 @@
     .content {
       flex: 1;
       padding: 20px;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 16px;
     }
 
     /* Footer */
@@ -59,7 +68,18 @@
     /* Responsif */
     @media (max-width: 600px) {
       .navbar .menu {
-        gap: 10px;
+        gap: 15px;
+      }
+
+      .navbar .menu a {
+        font-size: 14px;
+      }
+
+      .content h1 {
+        font-size: 22px;
+      }
+
+      .content p {
         font-size: 14px;
       }
     }
@@ -70,7 +90,7 @@
   <div class="navbar">
     <div class="menu">
       <a href="home.html">Beranda</a>
-      <a href="friends.html">Teman</a>
+      <a href="profile.html">Profil</a>
       <a href="messages.html">Pesan</a>
       <a href="notifications.html">Notifikasi</a>
       <a href="index.html">Logout</a>
