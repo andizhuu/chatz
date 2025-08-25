@@ -26,17 +26,38 @@
       z-index: 10;
     }
 
+    .logo-menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
     .logo {
       font-size: 22px;
       font-weight: bold;
       letter-spacing: 1px;
     }
 
+    .logo-menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .logo-menu a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
     .navbar-menu {
       display: flex;
       justify-content: flex-end;
       flex: 1;
-      gap: 20px;
+      gap: 15px;
     }
 
     .navbar-menu a {
@@ -44,8 +65,8 @@
       color: white;
       font-size: 16px;
       font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 8px;
+      padding: 6px 12px;
+      border-radius: 6px;
       transition: background 0.3s, transform 0.2s;
     }
 
@@ -123,16 +144,18 @@
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <div class="logo">Chatz</div>
+    <div class="logo-menu">
+      <div class="logo">Chatz</div>
+      <a href="#">Beranda</a>
+      <a href="#">Teman</a>
+      <a href="#">Pesan</a>
+    </div>
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
     <div class="navbar-menu" id="menu">
-      <a href="#">Beranda</a>
-      <a href="#">Teman</a>
-      <a href="#">Pesan</a>
       <a href="#">Notifikasi</a>
       <a href="index.html">Logout</a>
     </div>
