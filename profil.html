@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatz - Profil</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(90deg, #4a00e0, #8e2de2);
+      padding: 12px 20px;
+    }
+
+    .navbar .menu {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .navbar .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Konten utama */
+    .content {
+      flex: 1;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #8e2de2;
+    }
+
+    .profile-header h2 {
+      margin: 10px 0 5px;
+      font-size: 24px;
+    }
+
+    .profile-header p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Daftar Teman */
+    .friends {
+      margin-top: 30px;
+    }
+
+    .friends h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #8e2de2;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .friend-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    .friend {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .friend:hover {
+      transform: scale(1.05);
+    }
+
+    .friend img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .friend p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #222;
+      color: white;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+
+    /* Responsif */
+    @media (max-width: 600px) {
+      .navbar .menu {
+        gap: 20px;
+      }
+
+      .navbar .menu a {
+        font-size: 16px;
+      }
+
+      .profile-header h2 {
+        font-size: 20px;
+      }
+
+      .profile-header p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="menu">
+      <a href="home.html">Beranda</a>
+      <a href="profile.html">Profil</a>
+      <a href="messages.html">Pesan</a>
+      <a href="notifications.html">Notifikasi</a>
+      <a href="index.html">Logout</a>
+    </div>
+  </div>
+
+  <!-- Konten -->
+  <div class="content">
+    <div class="profile-header">
+      <img src="https://via.placeholder.com/120" alt="Foto Profil">
+      <h2>Nama Pengguna</h2>
+      <p>Bio singkat pengguna. Misalnya: "Suka ngoding, kopi, dan ngobrol seru di Chatz."</p>
+    </div>
+
+    <div class="friends">
+      <h3>Teman</h3>
+      <div class="friend-list">
+        <div class="friend">
+          <img src="https://via.placeholder.com/70" alt="Teman 1">
+          <p>Teman 1</p>
+        </div>
+        <div class="friend">
+          <img src="https://via.placeholder.com/70" alt="Teman 2">
+          <p>Teman 2</p>
+        </div>
+        <div class="friend">
+          <img src="https://via.placeholder.com/70" alt="Teman 3">
+          <p>Teman 3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Chatz - Aplikasi Chat Sederhana
+  </footer>
+</body>
+</html>
