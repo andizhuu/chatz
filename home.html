@@ -18,7 +18,7 @@
       align-items: center;
       justify-content: space-between;
       background: linear-gradient(90deg, #4a00e0, #8e2de2);
-      padding: 12px 30px;
+      padding: 12px 20px;
       color: white;
       box-sizing: border-box;
       box-shadow: 0 3px 6px rgba(0,0,0,0.2);
@@ -36,7 +36,7 @@
       display: flex;
       justify-content: flex-end;
       flex: 1;
-      gap: 25px;
+      gap: 20px;
     }
 
     .navbar-menu a {
@@ -52,6 +52,21 @@
     .navbar-menu a:hover {
       background: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
+    }
+
+    /* === BURGER MENU (MOBILE) === */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 28px;
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
     }
 
     /* === CONTENT === */
@@ -75,13 +90,46 @@
       margin: 20px auto;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
+
+    /* === RESPONSIVE RULES === */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .navbar-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 10px;
+      }
+
+      .navbar-menu a {
+        text-align: center;
+        padding: 12px;
+        width: 100%;
+      }
+
+      .navbar-menu.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">Chatz</div>
-    <div class="navbar-menu">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-menu" id="menu">
       <a href="#">Beranda</a>
       <a href="#">Teman</a>
       <a href="#">Pesan</a>
@@ -98,5 +146,11 @@
       <p>Kamu bisa mulai menjelajahi menu di atas 🚀</p>
     </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
