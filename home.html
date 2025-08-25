@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatz - Beranda</title>
-
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f3f3f9;
     }
 
+    /* === NAVBAR === */
     .navbar {
       width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       background: linear-gradient(90deg, #4a00e0, #8e2de2);
       padding: 12px 30px;
       color: white;
       box-sizing: border-box;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
 
     .logo {
@@ -30,8 +31,10 @@
     }
 
     .navbar-menu {
+      flex: 1;
       display: flex;
-      gap: 20px;
+      justify-content: flex-end;
+      gap: 25px;
     }
 
     .navbar-menu a {
@@ -39,31 +42,36 @@
       color: white;
       font-size: 16px;
       font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background 0.3s;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
     }
 
     .navbar-menu a:hover {
       background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
     }
 
-    .content {
-      padding: 20px;
+    /* === CONTENT === */
+    .container {
+      padding: 30px;
       text-align: center;
     }
 
-    .card {
-      max-width: 600px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    .welcome {
+      font-size: 26px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
     }
 
-    .card h2 {
-      color: #4a00e0;
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -80,11 +88,12 @@
     </div>
   </div>
 
-  <!-- Konten -->
-  <div class="content">
+  <!-- Content -->
+  <div class="container">
+    <div class="welcome">Selamat Datang di Chatz!</div>
     <div class="card">
-      <h2>Selamat Datang di Chatz!</h2>
-      <p>Ini adalah halaman beranda setelah berhasil login.</p>
+      <p>Ini adalah halaman beranda setelah login berhasil.</p>
+      <p>Kamu bisa mulai menjelajahi menu di atas 🚀</p>
     </div>
   </div>
 </body>
