@@ -1,4 +1,4 @@
-/* Reset dasar */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -24,28 +24,24 @@ body {
   margin: 15px;
 }
 
-/* Kiri & kanan */
-.navbar ul {
+/* Menu kiri & kanan */
+.nav-left,
+.nav-right {
   display: flex;
-  list-style: none;
   gap: 15px;
 }
 
-.navbar ul li {
-  display: flex;
-}
-
-.navbar ul li a {
+.navbar a {
   text-decoration: none;
   color: white;
-  font-size: 14px;   /* kecil supaya rapi */
+  font-size: 14px;
   font-weight: 500;
   padding: 8px 12px;
   border-radius: 8px;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.navbar ul li a:hover {
+.navbar a:hover {
   background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
 }
@@ -79,14 +75,15 @@ body {
     align-items: flex-start;
   }
 
-  .navbar ul {
+  .nav-left,
+  .nav-right {
     flex-direction: column;
     width: 100%;
     gap: 8px;
     margin-top: 8px;
   }
 
-  .navbar ul li a {
+  .navbar a {
     width: 100%;
     font-size: 15px;
     text-align: left;
