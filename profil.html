@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil - BebekChating</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tambahan khusus navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      background: #333;
+      padding: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px; /* biar gak terlalu renggang di layar besar */
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+    }
+
+    .nav-links a.active {
+      font-weight: bold;
+      border-bottom: 2px solid yellow;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
