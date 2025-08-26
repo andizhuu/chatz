@@ -1,57 +1,27 @@
-// Firebase Config
-const firebaseConfig = {
-  apiKey: "AIzaSyAC-M7ZAVJtsdBzvjPllaa5j_9j-bfsjbY",
-  authDomain: "chatz-16cd9.firebaseapp.com",
-  projectId: "chatz-16cd9",
-  storageBucket: "chatz-16cd9.firebasestorage.app",
-  messagingSenderId: "1012938581248",
-  appId: "1:1012938581248:web:e24b05a3576c1945123fe5",
-  measurementId: "G-EYYLZRNBW9"
-};
-
-// Init Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-// Login
+// Router sederhana
 document.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = document.getElementById("loginEmail").value;
-      const password = document.getElementById("loginPassword").value;
-      auth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = "home.html";
-        })
-        .catch(err => alert(err.message));
-    });
+  const content = document.getElementById("content");
+
+  async function loadPage(page) {
+    try {
+      const response = await fetch(`${page}.html`);
+      if (!response.ok) throw new Error("Halaman tidak ditemukan");
+      const html = await response.text();
+      content.innerHTML = html;
+    } catch (err) {
+      content.innerHTML = `<p style="color:red;">${err.message}</p>`;
+    }
   }
 
-  // Register
-  const registerForm = document.getElementById("registerForm");
-  if (registerForm) {
-    registerForm.addEventListener("submit", (e) => {
+  // Event klik menu
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
-      const email = document.getElementById("registerEmail").value;
-      const password = document.getElementById("registerPassword").value;
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = "home.html";
-        })
-        .catch(err => alert(err.message));
+      const page = link.getAttribute("href").substring(1); // hapus tanda #
+      loadPage(page);
     });
-  }
+  });
 
-  // Logout
-  const logoutBtn = document.getElementById("logoutBtn");
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      auth.signOut().then(() => {
-        window.location.href = "index.html";
-      });
-    });
-  }
+  // Default buka home
+  loadPage("home");
 });

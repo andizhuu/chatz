@@ -3,67 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatz - Login</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4a00e0, #8e2de2);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .login-box {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      width: 320px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      text-align: center;
-    }
-
-    .login-box h2 {
-      margin-bottom: 20px;
-      color: #4a00e0;
-    }
-
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 6px;
-      background: linear-gradient(90deg, #4a00e0, #8e2de2);
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .login-box button:hover {
-      opacity: 0.9;
-    }
-  </style>
+  <title>Chatz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="login-box">
-    <h2>Login Chatz</h2>
-    <form action="home.html" method="get">
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-  </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home" class="nav-link">Beranda</a></li>
+      <li><a href="#profil" class="nav-link">Profil</a></li>
+      <li><a href="#pesan" class="nav-link">Pesan</a></li>
+      <li><a href="#notifikasi" class="nav-link">Notifikasi</a></li>
+      <li><a href="#logout" class="nav-link">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Konten akan dimuat disini -->
+  <main id="content"></main>
+
+  <script src="script.js"></script>
 </body>
 </html>
