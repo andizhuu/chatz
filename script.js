@@ -1,41 +1,40 @@
-// Simpan data user ke localStorage
+// LOGIN
 document.addEventListener("DOMContentLoaded", () => {
-  // REGISTER
-  const registerForm = document.getElementById("registerForm");
-  if (registerForm) {
-    registerForm.addEventListener("submit", function(e) {
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
 
-      const username = document.getElementById("regUsername").value;
-      const password = document.getElementById("regPassword").value;
-
-      if (localStorage.getItem(username)) {
-        alert("Username sudah terdaftar!");
-      } else {
-        localStorage.setItem(username, password);
-        alert("Registrasi berhasil! Silakan login.");
-        window.location.href = "index.html"; // pindah ke halaman login
+      try {
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+        alert("Login sukses!");
+        window.location.href = "home.html";
+      } catch (error) {
+        alert("Login gagal: " + error.message);
       }
     });
   }
 
-  // LOGIN
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", function(e) {
+  // REGISTER
+  const registerForm = document.getElementById("registerForm");
+  if (registerForm) {
+    registerForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const name = document.getElementById("registerName").value;
+      const email = document.getElementById("registerEmail").value;
+      const password = document.getElementById("registerPassword").value;
 
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      const savedPassword = localStorage.getItem(username);
-
-      if (savedPassword && savedPassword === password) {
-        alert("Login berhasil! Selamat datang " + username);
-        localStorage.setItem("loggedInUser", username); // simpan session
-        window.location.href = "home.html";
-      } else {
-        alert("Username atau password salah!");
+      try {
+        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        await userCredential.user.updateProfile({
+          displayName: name
+        });
+        alert("Registrasi berhasil!");
+        window.location.href = "index.html";
+      } catch (error) {
+        alert("Registrasi gagal: " + error.message);
       }
     });
   }
