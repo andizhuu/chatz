@@ -2,109 +2,22 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatz - Home</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: flex-end;
-      background: linear-gradient(90deg, #6a11cb, #2575fc);
-      padding: 15px 20px;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar a {
-      margin-left: 20px;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: 0.3s;
-      animation: slideIn 0.8s ease-out forwards;
-    }
-
-    .navbar a:hover {
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
-    }
-
-    .navbar a.active {
-      border-bottom: 2px solid yellow;
-      padding-bottom: 3px;
-    }
-
-    /* Animasi Slide */
-    @keyframes slideIn {
-      from {
-        transform: translateY(-20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    /* Responsive (tetap horizontal di HP) */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .navbar a {
-        margin: 8px;
-        font-size: 16px;
-      }
-    }
-
-    /* Konten */
-    .content {
-      padding: 20px;
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .app-name {
-      margin-top: 40px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #444;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="navbar">
-    <a href="home.html" class="active">Beranda</a>
-    <a href="profil.html">Profil</a>
-    <a href="pesan.html">Pesan</a>
-    <a href="notifikasi.html">Notifikasi</a>
-    <a href="logout.html">Logout</a>
+  <div class="container">
+    <h2>Selamat Datang di Chatz 🎉</h2>
+    <p>Kamu berhasil login!</p>
+    <button onclick="logoutUser()">Logout</button>
   </div>
 
-  <div class="content">
-    <h2>Selamat datang di Chatz 🎉</h2>
-    <p>Ini adalah halaman utama setelah login berhasil.</p>
-    <div class="app-name">Chatz</div>
-  </div>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
