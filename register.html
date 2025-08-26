@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Akun</title>
+  <title>Daftar</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="form-container">
-    <h2>Daftar Akun 🚀</h2>
+    <h2>Daftar 🚀</h2>
     <input type="email" id="registerEmail" placeholder="Email">
     <input type="password" id="registerPassword" placeholder="Password">
     <button id="btnRegister">Daftar</button>
@@ -25,10 +25,10 @@
 
       try {
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Registrasi berhasil 🎉");
+        alert("Registrasi berhasil ✅");
         window.location.href = "home.html";
       } catch (error) {
-        alert(error.message);
+        alert("Gagal daftar: " + error.message);
       }
     });
   </script>
