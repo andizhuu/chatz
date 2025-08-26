@@ -3,109 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatz - Beranda</title>
+  <title>Chatz - Home</title>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f3f3f3;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
     }
 
     /* Navbar */
     .navbar {
       display: flex;
-      justify-content: center;
-      background: linear-gradient(90deg, #4a00e0, #8e2de2);
-      padding: 12px 20px;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      padding: 15px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .navbar .menu {
+    .navbar .left {
       display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      animation: slideIn 0.8s ease-out forwards;
     }
 
-    .navbar .menu a {
+    .navbar .left a {
       color: white;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 18px; /* lebih besar */
       transition: 0.3s;
     }
 
-    .navbar .menu a:hover {
-      text-decoration: underline;
+    .navbar .left a:hover {
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
 
-    /* Konten utama */
+    .navbar .right a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    .navbar .right a:hover {
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+
+    /* Animasi Slide */
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .navbar .left, .navbar .right {
+        flex-direction: column;
+        width: 100%;
+      }
+      .navbar .right a {
+        margin: 10px 0;
+      }
+    }
+
+    /* Konten */
     .content {
-      flex: 1;
       padding: 20px;
       text-align: center;
     }
 
-    .content h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .content p {
-      font-size: 16px;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      background: #222;
-      color: white;
-      padding: 10px 0;
-      font-size: 14px;
-    }
-
-    /* Responsif */
-    @media (max-width: 600px) {
-      .navbar .menu {
-        gap: 20px;
-      }
-
-      .navbar .menu a {
-        font-size: 16px; /* lebih besar di mobile juga */
-      }
-
-      .content h1 {
-        font-size: 22px;
-      }
-
-      .content p {
-        font-size: 14px;
-      }
+    .app-name {
+      margin-top: 40px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <div class="navbar">
-    <div class="menu">
-      <a href="home.html">Beranda</a>
-      <a href="profile.html">Profil</a>
-      <a href="messages.html">Pesan</a>
-      <a href="notifications.html">Notifikasi</a>
-      <a href="index.html">Logout</a>
+    <div class="left">
+      <a href="#">Chatz</a>
+      <a href="#">Beranda</a>
+      <a href="#">Profil</a>
+      <a href="#">Pesan</a>
+      <a href="#">Notifikasi</a>
+    </div>
+    <div class="right">
+      <a href="#">Logout</a>
     </div>
   </div>
 
-  <!-- Konten -->
   <div class="content">
-    <h1>Selamat datang di Chatz 🎉</h1>
-    <p>Ini adalah halaman beranda. Kamu bisa mulai menggunakan fitur aplikasi.</p>
+    <h2>Selamat datang di Chatz</h2>
+    <p>Ini adalah halaman utama setelah login berhasil.</p>
+    <div class="app-name">Chatz</div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Chatz - Aplikasi Chat Sederhana
-  </footer>
 </body>
 </html>
