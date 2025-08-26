@@ -1,155 +1,78 @@
-/* === Reset dasar === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* === Body umum === */
-body {
-  background: linear-gradient(135deg, #3a0ca3, #4361ee);
+/* ===== Auth Page (Login/Register) ===== */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  font-family: Arial, sans-serif;
 }
 
-/* === Navbar (home) === */
-.navbar {
+.auth-container {
+  text-align: center;
   width: 100%;
-  background: linear-gradient(90deg, #3a0ca3, #7209b7);
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  max-width: 400px;
 }
 
-/* Menu kiri-kanan */
-.navbar .nav-links {
-  display: flex;
-  gap: 25px;
-}
-
-.navbar .nav-links a {
+.app-title {
   color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  position: relative;
-  opacity: 0;
-  transform: translateX(-40px);
-  animation: slideIn 0.8s forwards;
+  margin-bottom: 20px;
+  font-size: 2rem;
 }
 
-/* Animasi tiap menu delay */
-.navbar .nav-links a:nth-child(1) { animation-delay: 0.2s; }
-.navbar .nav-links a:nth-child(2) { animation-delay: 0.4s; }
-.navbar .nav-links a:nth-child(3) { animation-delay: 0.6s; }
-.navbar .nav-links a:nth-child(4) { animation-delay: 0.8s; }
-.navbar .nav-links a:nth-child(5) { animation-delay: 1s; }
-
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.auth-card {
+  padding: 30px 25px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-/* Efek hover */
-.navbar .nav-links a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: #4cc9f0;
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.auth-card input:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #2575fc;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
   transition: 0.3s;
 }
-.navbar .nav-links a:hover::after {
-  width: 100%;
+
+.btn:hover {
+  background: #6a11cb;
 }
 
-/* === Footer (nama aplikasi) === */
-.footer {
-  margin-top: auto;
-  padding: 15px;
-  text-align: center;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #fff;
-  background: rgba(0,0,0,0.2);
-  width: 100%;
+.redirect-text {
+  margin-top: 15px;
+  font-size: 14px;
 }
 
-/* === Card form login/register === */
-.container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  margin-top: 100px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  max-width: 400px;
-  width: 90%;
-  animation: fadeIn 1s ease-in-out;
+.redirect-text a {
+  color: #2575fc;
+  text-decoration: none;
 }
 
-.container h2 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.container input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-}
-
-.container button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(90deg, #3a0ca3, #7209b7);
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s;
-}
-
-.container button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #4361ee, #4cc9f0);
-}
-
-/* Animasi form */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* === Responsif untuk HP === */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
-  }
+.redirect-text a:hover {
+  text-decoration: underline;
 }
