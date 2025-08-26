@@ -5,15 +5,16 @@
   <title>Login - Chatz</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
   <div class="auth-container">
-    <h1>Login ke Chatz</h1>
-    <input type="email" id="loginEmail" placeholder="Email" required>
-    <input type="password" id="loginPassword" placeholder="Password" required>
-    <button id="loginBtn">Login</button>
-    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
+    <div class="auth-card">
+      <h1>Login ke <span class="brand">Chatz</span></h1>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button id="loginBtn" class="btn">Login</button>
+      <p class="redirect-text">Belum punya akun? <a href="register.html">Daftar</a></p>
+    </div>
   </div>
-
   <script type="module" src="script.js"></script>
 </body>
 </html>
