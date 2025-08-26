@@ -2,43 +2,48 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil</title>
+  <title>Chatz - Profil</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- Navbar Modern -->
   <nav class="navbar">
     <div class="nav-links">
       <a href="home.html">Beranda</a>
       <a href="profil.html" class="active">Profil</a>
       <a href="pesan.html">Pesan</a>
       <a href="notifikasi.html">Notifikasi</a>
-      <a href="logout.html">Logout</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
     </div>
+    <div class="user-info" id="userEmail">Memuat...</div>
   </nav>
 
-  <!-- Content -->
-  <div class="content">
-    <div class="card profil-card">
-      <h2>Profil Saya</h2>
-      <img src="https://via.placeholder.com/120" alt="Foto Profil" class="foto-profil">
-      <p><strong>Nama:</strong> Andi Susanto</p>
-      <p><strong>Email:</strong> andi@example.com</p>
-      <p><strong>Bergabung:</strong> Agustus 2025</p>
-      <button class="btn" onclick="editProfil()">Edit Profil</button>
+  <!-- Konten -->
+  <div class="container">
+    <h2>Profil Saya 👤</h2>
+    <div class="card">
+      <p><strong>Email:</strong> <span id="profileEmail">Memuat...</span></p>
+      <p><strong>Bergabung:</strong> <span id="joinDate">-</span></p>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 BebekChating. All rights reserved.</p>
-  </footer>
-
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
   <script>
-    function editProfil() {
-      alert("Fitur edit profil masih dalam pengembangan 🚀");
-    }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        document.getElementById("userEmail").innerText = user.email;
+        document.getElementById("profileEmail").innerText = user.email;
+        document.getElementById("joinDate").innerText = new Date(user.metadata.creationTime).toLocaleDateString("id-ID");
+      } else {
+        window.location.href = "index.html";
+      }
+    });
   </script>
 </body>
 </html>

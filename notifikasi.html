@@ -2,24 +2,45 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notifikasi - Chatz</title>
+  <title>Chatz - Notifikasi</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Navbar Modern -->
   <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html">Profil</a></li>
-      <li><a href="pesan.html">Pesan</a></li>
-      <li><a href="notifikasi.html" class="active">Notifikasi</a></li>
-      <li><a href="logout.html">Logout</a></li>
-    </ul>
+    <div class="nav-links">
+      <a href="home.html">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="pesan.html">Pesan</a>
+      <a href="notifikasi.html" class="active">Notifikasi</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </div>
+    <div class="user-info" id="userEmail">Memuat...</div>
   </nav>
 
+  <!-- Konten -->
   <div class="container">
-    <h1>Notifikasi</h1>
-    <p>Ini adalah halaman notifikasi Anda.</p>
+    <h2>Notifikasi 🔔</h2>
+    <div class="card">
+      <p>Belum ada notifikasi baru ✨</p>
+    </div>
   </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="firebase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        document.getElementById("userEmail").innerText = user.email;
+      } else {
+        window.location.href = "index.html";
+      }
+    });
+  </script>
 </body>
 </html>
