@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Chatz</title>
+  <title>Chatz - Login</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,12 +13,15 @@
       <form id="loginForm">
         <input type="email" id="loginEmail" placeholder="Email" required />
         <input type="password" id="loginPassword" placeholder="Password" required />
-        <button type="submit">Login</button>
+        <button type="submit" class="btn">Login</button>
       </form>
       <p class="auth-link">Belum punya akun? <a href="register.html">Daftar</a></p>
     </div>
   </div>
-  <script src="firebase.js"></script>
-  <script src="script.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="firebase.js" type="module"></script>
+  <!-- Script Auth -->
+  <script src="script.js" type="module"></script>
 </body>
 </html>
