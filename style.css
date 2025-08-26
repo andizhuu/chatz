@@ -14,9 +14,6 @@ body {
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: linear-gradient(135deg, #4e54c8, #8f94fb);
   padding: 12px 20px;
   border-radius: 12px;
@@ -24,11 +21,11 @@ body {
   margin: 15px;
 }
 
-/* Menu kiri & kanan */
-.nav-left,
-.nav-right {
+/* Menu */
+.nav-menu {
   display: flex;
-  gap: 15px;
+  justify-content: flex-end; /* semua item ke kanan */
+  gap: 20px;
 }
 
 .navbar a {
@@ -70,17 +67,10 @@ body {
 
 /* Responsif */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
+  .nav-menu {
+    flex-direction: column; /* di HP biar rapi ke bawah */
     align-items: flex-start;
-  }
-
-  .nav-left,
-  .nav-right {
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
-    margin-top: 8px;
+    gap: 10px;
   }
 
   .navbar a {
