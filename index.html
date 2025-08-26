@@ -2,25 +2,83 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Login - Chatz</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatz - Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4cafef;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #2196f3;
+    }
+
+    a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .switch {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Login ke Chatz</h2>
+  <div class="card">
+    <h2>Login Chatz</h2>
     <input type="email" id="loginEmail" placeholder="Email">
     <input type="password" id="loginPassword" placeholder="Password">
-    <button onclick="loginUser(
-      document.getElementById('loginEmail').value, 
-      document.getElementById('loginPassword').value
-    )">Login</button>
-    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
+    <button onclick="login()">Login</button>
+    <div class="switch">
+      Belum punya akun? <a href="register.html">Daftar</a>
+    </div>
   </div>
-
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
   <script src="firebase.js"></script>
   <script src="script.js"></script>
