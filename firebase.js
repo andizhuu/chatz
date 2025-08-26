@@ -1,5 +1,4 @@
-// firebase.js
-// Import Firebase SDK
+// Firebase config
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
@@ -13,6 +12,7 @@ const firebaseConfig = {
   measurementId: "G-EYYLZRNBW9"
 };
 
-// Init Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
+
+export { auth };
