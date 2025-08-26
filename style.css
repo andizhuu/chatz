@@ -1,84 +1,64 @@
-/* Reset dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Navbar */
+/* Navbar Modern */
 .navbar {
-  background: #333;
-  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  backdrop-filter: blur(10px);
+  padding: 14px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Link Navbar */
 .nav-links {
   display: flex;
-  justify-content: space-around; /* bagi rata semua menu */
-  align-items: center;
-  margin: 0;
-  padding: 0;
+  gap: 40px; /* jarak antar menu */
 }
 
 .nav-links a {
-  color: white;
+  position: relative;
+  color: #fff;
+  font-weight: 600;
   text-decoration: none;
-  padding: 8px 16px;
-  flex: 1; /* semua link punya lebar sama */
-  text-align: center;
-  transition: background 0.3s;
+  padding: 8px 0;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
+/* Hover Glow */
 .nav-links a:hover {
-  background: #444;
+  color: #ffeb3b; /* kuning keemasan */
+  text-shadow: 0 0 8px rgba(255, 235, 59, 0.8);
+  transform: translateY(-2px);
 }
 
-.nav-links a.active {
-  font-weight: bold;
-  border-bottom: 2px solid yellow;
-}
-
-/* Content */
-.content {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  max-width: 400px;
+/* Garis bawah aktif dengan efek gradien */
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
   width: 100%;
-  text-align: center;
+  height: 3px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #ffeb3b, #ff9800);
+  animation: slideIn 0.4s ease-out;
 }
 
-.foto-profil {
-  border-radius: 50%;
-  margin: 15px 0;
+/* Animasi garis bawah */
+@keyframes slideIn {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
-.btn {
-  background: #333;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #555;
-}
-
-/* Footer */
-.footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 12px 0;
-  margin-top: 30px;
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 20px;
+  }
+  .nav-links a {
+    font-size: 15px;
+  }
 }
