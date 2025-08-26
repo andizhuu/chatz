@@ -37,6 +37,11 @@
       text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
 
+    .navbar a.active {
+      border-bottom: 2px solid yellow;
+      padding-bottom: 3px;
+    }
+
     /* Animasi Slide */
     @keyframes slideIn {
       from {
@@ -89,11 +94,11 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="#">Beranda</a>
-    <a href="#">Profil</a>
-    <a href="#">Pesan</a>
-    <a href="#">Notifikasi</a>
-    <a href="#">Logout</a>
+    <a href="home.html" class="active">Beranda</a>
+    <a href="profil.html">Profil</a>
+    <a href="pesan.html">Pesan</a>
+    <a href="notifikasi.html">Notifikasi</a>
+    <a href="logout.html">Logout</a>
   </div>
 
   <div class="content">
