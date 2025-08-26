@@ -1,4 +1,8 @@
 // firebase.js
+// Import Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAC-M7ZAVJtsdBzvjPllaa5j_9j-bfsjbY",
   authDomain: "chatz-16cd9.firebaseapp.com",
@@ -9,5 +13,6 @@ const firebaseConfig = {
   measurementId: "G-EYYLZRNBW9"
 };
 
-// Inisialisasi Firebase
-firebase.initializeApp(firebaseConfig);
+// Init Firebase
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
