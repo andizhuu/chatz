@@ -1,8 +1,7 @@
-// firebase.js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+// Firebase Config
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Config Firebase dari project kamu
 const firebaseConfig = {
   apiKey: "AIzaSyAC-M7ZAVJtsdBzvjPllaa5j_9j-bfsjbY",
   authDomain: "chatz-16cd9.firebaseapp.com",
@@ -13,8 +12,41 @@ const firebaseConfig = {
   measurementId: "G-EYYLZRNBW9"
 };
 
-// Init Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export { auth };
+// ===== LOGIN =====
+window.login = function () {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      window.location.href = "home.html";
+    })
+    .catch((error) => alert(error.message));
+};
+
+// ===== REGISTER =====
+window.register = function () {
+  const email = document.getElementById("registerEmail").value;
+  const password = document.getElementById("registerPassword").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      window.location.href = "home.html";
+    })
+    .catch((error) => alert(error.message));
+};
+
+// ===== LOGOUT =====
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth).then(() => {
+        window.location.href = "index.html";
+      });
+    });
+  }
+});
