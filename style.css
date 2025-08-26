@@ -1,115 +1,50 @@
-/* Reset dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-/* Body umum */
 body {
-  background: #f0f2f5;
-  color: #333;
-}
-
-/* Navbar umum */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  background: #007bff;
-  color: #fff;
-}
-
-nav .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-nav .menu {
-  display: flex;
-  gap: 15px;
-}
-
-nav .menu a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-nav .menu a:hover {
-  text-decoration: underline;
-}
-
-/* Auth page (Login & Register) */
-.auth-page {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
 }
 
 .auth-container {
-  width: 100%;
-  max-width: 380px;
-}
-
-.auth-card {
-  background: #fff;
-  border-radius: 10px;
+  background: white;
   padding: 25px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  width: 320px;
   text-align: center;
 }
 
-.auth-card h2 {
+.auth-container h1 {
   margin-bottom: 20px;
-  color: #333;
 }
 
-.auth-card input {
+.auth-container input {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.auth-card .btn {
+.auth-container button {
   width: 100%;
-  background: #007bff;
-  color: #fff;
-  padding: 12px;
+  padding: 10px;
   border: none;
-  border-radius: 6px;
-  font-size: 15px;
+  background: #4e54c8;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  margin-top: 10px;
 }
 
-.auth-card .btn:hover {
-  background: #0056b3;
+.auth-container button:hover {
+  background: #3e44a1;
 }
 
-.redirect-text {
+.auth-container p {
   margin-top: 15px;
-  font-size: 14px;
-}
-
-.redirect-text a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.redirect-text a:hover {
-  text-decoration: underline;
-}
-
-/* Konten utama halaman setelah login */
-.main-content {
-  padding: 20px;
 }
