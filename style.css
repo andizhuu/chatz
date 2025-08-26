@@ -1,81 +1,104 @@
-/* ===== AUTH PAGE (Login & Register) ===== */
-.auth-page {
+/* === Background Gradasi Full Warna === */
+.auth-body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ff6a00, #ee0979, #8e2de2, #4a00e0);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  padding: 20px;
 }
 
-.auth-container {
-  background: #fff;
+/* Animasi Background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Card Transparan Glass === */
+.auth-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
   padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
   text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
-.auth-container h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  color: #333;
+/* === Judul & Text === */
+.auth-box h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
 }
-
-.auth-container .brand {
-  color: #667eea;
-  font-weight: bold;
-}
-
-.auth-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.auth-container input {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+.auth-box .subtitle {
   font-size: 14px;
+  margin-bottom: 25px;
+  color: #eee;
+}
+.auth-box .brand {
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffeb3b, #ff9800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Input === */
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
   transition: all 0.3s;
 }
-
-.auth-container input:focus {
-  border-color: #667eea;
-  outline: none;
-  box-shadow: 0 0 5px rgba(102,126,234,0.4);
+.input-group input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+.input-group input:focus {
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
-.auth-container .btn {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+/* === Tombol Gradien === */
+.btn {
+  width: 100%;
   padding: 12px;
+  border-radius: 12px;
   border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
   font-size: 15px;
   font-weight: bold;
-  transition: 0.3s;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-.auth-container .btn:hover {
-  background: linear-gradient(135deg, #5a6de0, #6a3c91);
+/* === Link bawah === */
+.auth-box p {
+  margin-top: 18px;
+  font-size: 13px;
 }
-
-.auth-container p {
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.auth-container a {
-  color: #667eea;
+.auth-box a {
+  color: #ffeb3b;
   font-weight: bold;
   text-decoration: none;
 }
-
-.auth-container a:hover {
+.auth-box a:hover {
   text-decoration: underline;
 }

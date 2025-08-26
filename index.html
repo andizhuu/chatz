@@ -2,19 +2,24 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Chatz</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="auth-page">
-  <div class="auth-container">
-    <div class="auth-card">
-      <h1>Login ke <span class="brand">Chatz</span></h1>
-      <input type="email" id="loginEmail" placeholder="Email" required>
-      <input type="password" id="loginPassword" placeholder="Password" required>
-      <button id="loginBtn" class="btn">Login</button>
-      <p class="redirect-text">Belum punya akun? <a href="register.html">Daftar</a></p>
-    </div>
+<body class="auth-body">
+  <div class="auth-box">
+    <h2>Selamat Datang 👋</h2>
+    <p class="subtitle">Masuk ke akun <span class="brand">Chatz</span></p>
+    <form>
+      <div class="input-group">
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
   </div>
-  <script type="module" src="script.js"></script>
 </body>
 </html>
