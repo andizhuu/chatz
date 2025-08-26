@@ -3,23 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil - Chatz</title>
+  <title>Chatz - Profil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="profil.html" class="active">Profil</a></li>
-      <li><a href="pesan.html">Pesan</a></li>
-      <li><a href="notifikasi.html">Notifikasi</a></li>
-      <li><a href="logout.html">Logout</a></li>
-    </ul>
-  </nav>
 
-  <div class="container">
-    <h1>Profil</h1>
-    <p>Ini adalah halaman profil Anda.</p>
-  </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Chatz</div>
+    <nav class="nav-links">
+      <a href="home.html">Beranda</a>
+      <a href="profil.html" class="active">Profil</a>
+      <a href="pesan.html">Pesan</a>
+      <a href="notifikasi.html">Notifikasi</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Konten -->
+  <main class="content">
+    <h1>Profil Saya</h1>
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Foto Profil" style="border-radius: 50%; margin-bottom: 15px;">
+      <h2>Nama Pengguna</h2>
+      <p>Email: contoh@email.com</p>
+      <button onclick="editProfil()">Edit Profil</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Chatz. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    function editProfil() {
+      alert("Fitur edit profil segera hadir 🚀");
+    }
+  </script>
+
 </body>
 </html>
