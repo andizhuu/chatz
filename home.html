@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h2>Selamat Datang di Chatz 🎉</h2>
-    <p>Kamu berhasil login!</p>
+    <p id="userEmail">Memuat...</p>
     <button onclick="logoutUser()">Logout</button>
   </div>
 
@@ -19,5 +19,16 @@
 
   <script src="firebase.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Proteksi auth
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        document.getElementById("userEmail").innerText = "Login sebagai: " + user.email;
+      } else {
+        // Belum login → tendang balik ke login
+        window.location.href = "index.html";
+      }
+    });
+  </script>
 </body>
 </html>
