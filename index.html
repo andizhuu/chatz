@@ -3,33 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Login 🔑</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="form-container">
     <h2>Login 🔑</h2>
-    <input type="email" id="loginEmail" placeholder="Email">
-    <input type="password" id="loginPassword" placeholder="Password">
-    <button id="btnLogin">Login</button>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button onclick="login()">Login</button>
     <p>Belum punya akun? <a href="register.html">Daftar</a></p>
   </div>
 
   <script type="module">
     import { auth } from "./firebase.js";
-    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { signInWithEmailAndPassword } 
+      from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-    document.getElementById("btnLogin").addEventListener("click", async () => {
+    window.login = function() {
       const email = document.getElementById("loginEmail").value;
       const password = document.getElementById("loginPassword").value;
 
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "home.html";
-      } catch (error) {
-        alert("Login gagal: " + error.message);
-      }
-    });
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("Login berhasil 🎉");
+          window.location.href = "home.html";
+        })
+        .catch((error) => {
+          alert("Login gagal: " + error.message);
+        });
+    }
   </script>
 </body>
 </html>

@@ -3,34 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar</title>
+  <title>Daftar 🚀</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="form-container">
     <h2>Daftar 🚀</h2>
-    <input type="email" id="registerEmail" placeholder="Email">
-    <input type="password" id="registerPassword" placeholder="Password">
-    <button id="btnRegister">Daftar</button>
+    <input type="email" id="registerEmail" placeholder="Email" required>
+    <input type="password" id="registerPassword" placeholder="Password" required>
+    <button onclick="register()">Daftar</button>
     <p>Sudah punya akun? <a href="index.html">Login</a></p>
   </div>
 
   <script type="module">
     import { auth } from "./firebase.js";
-    import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { createUserWithEmailAndPassword } 
+      from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-    document.getElementById("btnRegister").addEventListener("click", async () => {
+    window.register = function() {
       const email = document.getElementById("registerEmail").value;
       const password = document.getElementById("registerPassword").value;
 
-      try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        alert("Registrasi berhasil ✅");
-        window.location.href = "home.html";
-      } catch (error) {
-        alert("Gagal daftar: " + error.message);
-      }
-    });
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("Pendaftaran berhasil 🎉");
+          window.location.href = "home.html";
+        })
+        .catch((error) => {
+          alert("Gagal daftar: " + error.message);
+        });
+    }
   </script>
 </body>
 </html>
