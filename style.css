@@ -3,98 +3,105 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(135deg, #dfe9f3, #fdfbfb);
-}
-
-/* Navbar container */
-.navbar {
-  margin: 20px auto;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  flex-wrap: wrap; /* biar responsif */
-}
-
-/* Link umum */
-.navbar a {
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 12px;
-  background: #f7f7f7;
-  box-shadow: 3px 3px 8px #d1d9e6, -3px -3px 8px #ffffff;
+  background: #f3f4f6;
   color: #333;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 6px;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 15px;
 }
 
-.navbar a:hover {
+/* Kiri & kanan */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.navbar ul li {
+  display: flex;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;   /* kecil supaya rapi */
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.navbar ul li a:hover {
+  background: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
-  box-shadow: 5px 5px 12px #d1d9e6, -5px -5px 12px #ffffff;
-}
-
-/* Tombol logout dibuat khusus */
-.navbar .logout {
-  background: #ffebee;
-  color: #e53935;
-  font-weight: bold;
-}
-
-.navbar .logout:hover {
-  background: #ffcdd2;
-  box-shadow: 5px 5px 12px #e57373, -5px -5px 12px #ffffff;
 }
 
 /* Konten utama */
 .container {
-  margin-top: 80px;
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   text-align: center;
-  padding: 20px;
 }
 
 .container h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #4e54c8;
 }
 
 .container p {
-  font-size: 1rem;
+  font-size: 16px;
   color: #555;
 }
 
-/* Responsif Mobile */
+/* Responsif */
 @media (max-width: 768px) {
   .navbar {
-    gap: 10px;
-    padding: 10px 15px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .navbar a {
-    padding: 8px 14px;
-    font-size: 0.9rem;
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .navbar ul li a {
+    width: 100%;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .container {
+    margin: 20px;
+    padding: 20px;
   }
 
   .container h1 {
-    font-size: 1.6rem;
+    font-size: 22px;
   }
 
   .container p {
-    font-size: 0.9rem;
+    font-size: 14px;
   }
 }
