@@ -14,8 +14,7 @@
     /* Navbar */
     .navbar {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       background: linear-gradient(90deg, #6a11cb, #2575fc);
       padding: 15px 20px;
       color: white;
@@ -24,43 +23,24 @@
       z-index: 1000;
     }
 
-    .navbar .left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      animation: slideIn 0.8s ease-out forwards;
-    }
-
-    .navbar .left a {
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .navbar .left a:hover {
-      text-shadow: 0 0 10px rgba(255,255,255,0.8);
-    }
-
-    .navbar .right a {
+    .navbar a {
       margin-left: 20px;
       color: white;
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
       transition: 0.3s;
-      animation: slideIn 1s ease-out forwards;
+      animation: slideIn 0.8s ease-out forwards;
     }
 
-    .navbar .right a:hover {
+    .navbar a:hover {
       text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
 
     /* Animasi Slide */
     @keyframes slideIn {
       from {
-        transform: translateX(-100px);
+        transform: translateX(-50px);
         opacity: 0;
       }
       to {
@@ -73,13 +53,9 @@
     @media (max-width: 768px) {
       .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-end;
       }
-      .navbar .left, .navbar .right {
-        flex-direction: column;
-        width: 100%;
-      }
-      .navbar .right a {
+      .navbar a {
         margin: 10px 0;
       }
     }
@@ -88,6 +64,18 @@
     .content {
       padding: 20px;
       text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .app-name {
@@ -100,20 +88,15 @@
 </head>
 <body>
   <div class="navbar">
-    <div class="left">
-      <a href="#">Chatz</a>
-      <a href="#">Beranda</a>
-      <a href="#">Profil</a>
-      <a href="#">Pesan</a>
-      <a href="#">Notifikasi</a>
-    </div>
-    <div class="right">
-      <a href="#">Logout</a>
-    </div>
+    <a href="#">Beranda</a>
+    <a href="#">Profil</a>
+    <a href="#">Pesan</a>
+    <a href="#">Notifikasi</a>
+    <a href="#">Logout</a>
   </div>
 
   <div class="content">
-    <h2>Selamat datang di Chatz</h2>
+    <h2>Selamat datang di Chatz 🎉</h2>
     <p>Ini adalah halaman utama setelah login berhasil.</p>
     <div class="app-name">Chatz</div>
   </div>
