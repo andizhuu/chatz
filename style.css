@@ -1,36 +1,50 @@
+/* === NAVBAR STAY INLINE === */
 .navbar {
-  width: 100%;
   display: flex;
+  flex-direction: row;   /* Selalu horizontal */
+  justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #4a00e0, #8e2de2);
-  padding: 12px 30px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  margin: 0 15px;               /* Spasi kiri kanan */
   color: white;
-  box-sizing: border-box;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.navbar-menu {
-  flex: 1;              /* biar dorong sampai kanan */
-  display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-}
-
-.navbar-menu a {
   text-decoration: none;
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: background 0.3s;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  white-space: nowrap;          /* Biar teks nggak pecah ke bawah */
 }
 
-.navbar-menu a:hover {
-  background: rgba(255, 255, 255, 0.25);
+.navbar a:hover {
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+/* Animasi masuk dari kiri ke kanan */
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.navbar a {
+  animation: slideFromLeft 0.8s ease forwards;
+}
+
+/* Biar lebih responsif di HP */
+@media (max-width: 600px) {
+  .navbar a {
+    font-size: 14px;
+    margin: 0 8px;
+  }
 }
