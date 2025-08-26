@@ -1,101 +1,41 @@
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.auth-container {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  width: 100%;
-  max-width: 350px;
-  text-align: center;
-}
-
-.auth-container h2 {
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.auth-container input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: 14px;
-}
-
-.auth-container button {
-  width: 100%;
-  padding: 0.75rem;
-  border: none;
-  background: #2575fc;
-  color: #fff;
-  font-size: 16px;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.auth-container button:hover {
-  background: #1b5edb;
-}
-
-.auth-container p {
-  margin-top: 1rem;
-  font-size: 14px;
-}
-
-.auth-container a {
-  color: #2575fc;
-  text-decoration: none;
-}
-
-/* Navbar */
+/* ===== Navbar ===== */
 .navbar {
-  width: 100%;
-  background: #fff;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #2c3e50;
+  padding: 12px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  list-style: none;
+.nav-links {
+  display: flex;               /* ✅ Biar sejajar horizontal */
+  justify-content: flex-start; /* ✅ Posisi rata kiri */
+  align-items: center;         /* ✅ Biar sejajar vertikal */
+  gap: 20px;                   /* ✅ Jarak antar menu */
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.navbar ul li a,
-.navbar ul li button {
+.nav-links li a {
+  color: #ecf0f1;
   text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
-.navbar ul li a:hover,
-.navbar ul li button:hover {
-  color: #2575fc;
+.nav-links li a:hover {
+  background: #34495e;
 }
 
+/* Biar konten gak ketutupan navbar */
 main {
   margin-top: 80px;
-  text-align: center;
-  color: #fff;
+  padding: 20px;
 }
