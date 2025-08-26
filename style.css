@@ -1,139 +1,41 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: linear-gradient(135deg, #2c3e50, #3498db);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ===== AUTH CARD (Login & Register) ===== */
-.auth-container {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 30px;
-  border-radius: 15px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.auth-container h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-.auth-container input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  background: #ecf0f1;
-  font-size: 15px;
-}
-
-.auth-container button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  background: #3498db;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.auth-container button:hover {
-  background: #2980b9;
-}
-
-.auth-container p {
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.auth-container a {
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* ===== NAVBAR (Home) ===== */
+/* Navbar */
 .navbar {
-  background: #2c3e50;
-  padding: 12px 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  background: #333;
+  padding: 10px 0;
 }
 
 .nav-links {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  list-style: none;
+  width: 100%;
 }
 
-.nav-links li a {
-  color: #ecf0f1;
+.nav-links a {
+  flex: 1;                  /* semua link lebar sama */
+  min-width: 0;             /* biar tidak melompat turun */
+  color: white;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: 0.3s;
-  padding: 6px 12px;
-  border-radius: 6px;
-}
-
-.nav-links li a:hover {
-  background: #34495e;
-}
-
-/* ===== HOME CONTENT ===== */
-main {
-  margin-top: 90px;
-  padding: 20px;
   text-align: center;
-  color: #fff;
+  padding: 10px 5px;
+  transition: background 0.3s;
+  white-space: nowrap;       /* jangan pecah ke baris baru */
 }
 
-main h1 {
-  font-size: 28px;
-  margin-bottom: 15px;
+.nav-links a:hover {
+  background: #444;
 }
 
-main p {
-  font-size: 16px;
+.nav-links a.active {
+  font-weight: bold;
+  border-bottom: 2px solid yellow;
 }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .nav-links {
-    flex-wrap: wrap;
-    gap: 10px;
+    overflow-x: auto;
   }
-
-  .auth-container {
-    padding: 20px;
-  }
-
-  main h1 {
-    font-size: 22px;
+  .nav-links a {
+    flex: none;      /* jangan paksa sama lebar */
+    padding: 10px 12px;
   }
 }
