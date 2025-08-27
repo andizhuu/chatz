@@ -7,27 +7,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-links">
       <a href="home.html">Beranda</a>
       <a href="profil.html" class="active">Profil</a>
       <a href="pesan.html">Pesan</a>
       <a href="notifikasi.html">Notifikasi</a>
-      <a href="logout.html">Logout</a>
+      <a href="#" id="logoutBtn">Logout</a>
     </div>
   </nav>
 
-  <!-- Konten -->
   <main class="container">
     <h1>Profil Saya</h1>
-    <div class="profil-box">
-      <p><strong>Nama:</strong> Andi Zhuu</p>
-      <p><strong>Email:</strong> andizhuu@example.com</p>
-      <p><strong>Status:</strong> Online</p>
-    </div>
+    <p><strong>Email:</strong> <span id="userEmail"></span></p>
   </main>
 
+  <script type="module">
+    import { auth, signOut } from "./firebase.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        document.getElementById("userEmail").innerText = user.email;
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      signOut(auth).then(() => window.location.href = "login.html");
+    });
+  </script>
 </body>
 </html>

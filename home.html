@@ -7,23 +7,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-links">
       <a href="home.html" class="active">Beranda</a>
       <a href="profil.html">Profil</a>
       <a href="pesan.html">Pesan</a>
       <a href="notifikasi.html">Notifikasi</a>
-      <a href="logout.html">Logout</a>
+      <a href="#" id="logoutBtn">Logout</a>
     </div>
   </nav>
 
-  <!-- Konten -->
   <main class="container">
     <h1>Selamat Datang di Chatz</h1>
-    <p>Ini adalah halaman beranda setelah login.</p>
+    <p>Kamu berhasil login dengan Firebase Authentication 🚀</p>
   </main>
 
+  <script type="module">
+    import { auth, signOut } from "./firebase.js";
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      });
+    });
+  </script>
 </body>
 </html>

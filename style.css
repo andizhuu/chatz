@@ -1,41 +1,77 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  min-height: 100vh;
+  color: white;
+}
+
 /* Navbar */
 .navbar {
-  background: #333;
-  padding: 10px 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  padding: 12px 0;
 }
 
 .nav-links {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  justify-content: center;
+  gap: 20px;
 }
 
 .nav-links a {
-  flex: 1;                  /* semua link lebar sama */
-  min-width: 0;             /* biar tidak melompat turun */
   color: white;
   text-decoration: none;
-  text-align: center;
-  padding: 10px 5px;
-  transition: background 0.3s;
-  white-space: nowrap;       /* jangan pecah ke baris baru */
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
 }
 
-.nav-links a:hover {
-  background: #444;
-}
-
+.nav-links a:hover,
 .nav-links a.active {
-  font-weight: bold;
-  border-bottom: 2px solid yellow;
+  background: rgba(255,255,255,0.2);
 }
-@media (max-width: 400px) {
-  .nav-links {
-    overflow-x: auto;
-  }
-  .nav-links a {
-    flex: none;      /* jangan paksa sama lebar */
-    padding: 10px 12px;
-  }
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+/* Input form */
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+button {
+  background: #6a11cb;
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
 }
