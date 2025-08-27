@@ -2,44 +2,32 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil - BebekChating</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Profil - Chatz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">BebekChating</div>
-    <div class="nav-links">
-      <a href="home.html">Beranda</a>
-      <a href="profil.html" class="active">Profil</a>
-      <a href="#" id="logoutBtn">Logout</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Beranda</a></li>
+      <li><a href="profil.html" class="active">Profil</a></li>
+      <li><a href="pesan.html">Pesan</a></li>
+      <li><a href="notifikasi.html">Notifikasi</a></li>
+      <li><a href="#" id="logoutBtn">Logout</a></li>
+    </ul>
   </nav>
 
-  <!-- Content -->
-  <div class="content">
-    <div class="card">
-      <h2>Profil Saya</h2>
-      <img id="userPhoto" src="https://via.placeholder.com/120" alt="Foto Profil" style="border-radius: 50%; margin:15px 0;">
-      <p><strong>Nama:</strong> <span id="userName">Loading...</span></p>
-      <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
-      <button class="btn" onclick="editProfil()">Edit Profil</button>
-    </div>
-  </div>
+  <!-- Konten Profil -->
+  <main class="content">
+    <h1>Profil Saya</h1>
+    <img id="profilePicture" src="" alt="Foto Profil" class="profile-img">
+    <p><strong>Nama:</strong> <span id="displayName">Loading...</span></p>
+    <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+    <button id="editProfileBtn">Edit Profil</button>
+  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 BebekChating. All rights reserved.</p>
-  </footer>
-
-  <script type="module" src="firebase.js"></script>
-  <script type="module" src="app.js"></script>
-
-  <script>
-    function editProfil() {
-      alert("Fitur edit profil masih dalam pengembangan 🚀");
-    }
-  </script>
+  <script src="firebase.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
