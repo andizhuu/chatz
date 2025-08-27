@@ -3,32 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil - BebekChating</title>
+  <title>BebekChating - Profil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav class="navbar">
-    <div class="nav-links">
-      <a href="home.html">Beranda</a>
-      <a href="profil.html" class="active">Profil</a>
-      <a href="pesan.html">Pesan</a>
-      <a href="notifikasi.html">Notifikasi</a>
-      <a href="logout.html">Logout</a>
-    </div>
+    <a href="home.html">Beranda</a>
+    <a href="profil.html" class="active">Profil</a>
+    <a href="#" onclick="logout()">Logout</a>
   </nav>
 
   <div class="content">
     <div class="card">
       <h2>Profil Saya</h2>
-      <img src="https://via.placeholder.com/120" style="border-radius:50%;margin:15px 0;">
-      <p><strong>Nama:</strong> User</p>
-      <p><strong>Email:</strong> (otomatis dari Firebase)</p>
-      <button class="btn">Edit Profil</button>
+      <img id="userPhoto" src="https://via.placeholder.com/120" alt="Foto Profil" style="border-radius:50%">
+      <p><strong>Email:</strong> <span id="userEmail">Memuat...</span></p>
+      <p><strong>Bergabung:</strong> <span id="userCreated">-</span></p>
     </div>
   </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 BebekChating</p>
-  </footer>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
