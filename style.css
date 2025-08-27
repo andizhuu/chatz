@@ -1,77 +1,100 @@
-/* Reset */
+/* Reset dasar */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  background: linear-gradient(135deg, #3a0ca3, #4361ee, #7209b7);
   min-height: 100vh;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
 }
 
 /* Navbar */
 .navbar {
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .nav-links {
   display: flex;
-  justify-content: center;
   gap: 20px;
 }
 
 .nav-links a {
-  color: white;
   text-decoration: none;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.3s;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* Container */
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  background: rgba(255,255,255,0.1);
+/* Konten */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
   padding: 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  text-align: center;
-}
-
-/* Input form */
-input {
+  border-radius: 16px;
+  max-width: 400px;
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  margin-bottom: 15px;
-  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-button {
-  background: #6a11cb;
-  background: linear-gradient(135deg, #2575fc, #6a11cb);
+.card h2 {
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #4361ee;
   border: none;
-  padding: 12px 20px;
+  padding: 10px 20px;
+  border-radius: 12px;
   color: white;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s;
+  margin-top: 15px;
+  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
+.btn:hover {
+  background: #3a0ca3;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 12px;
+  background: rgba(0,0,0,0.3);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .card {
+    max-width: 100%;
+  }
 }

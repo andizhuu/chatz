@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logout - Chatz</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    // langsung logout (misalnya hapus session Firebase nanti)
-    window.onload = function() {
-      alert("Anda telah logout!");
-      window.location.href = "index.html"; // balik ke beranda / login
-    }
-  </script>
+  <title>Logout...</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Sedang logout...</h1>
-  </div>
+  <p>Logout...</p>
+  <script src="firebase.js" type="module"></script>
+  <script type="module">
+    import { signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    signOut(window.auth).then(() => {
+      window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>

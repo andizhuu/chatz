@@ -1,60 +1,18 @@
-import { auth } from "./firebase.js";
-import { 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
-  signOut, 
-  onAuthStateChanged 
-} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// 🔹 Register
-const registerForm = document.getElementById("registerForm");
-if (registerForm) {
-  registerForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("registerEmail").value;
-    const password = document.getElementById("registerPassword").value;
-
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert("Registrasi berhasil!");
-      window.location.href = "home.html";
-    } catch (error) {
-      alert(error.message);
-    }
-  });
+window.login = function () {
+  const email = document.getElementById("loginEmail").value;
+  const pass = document.getElementById("loginPassword").value;
+  signInWithEmailAndPassword(window.auth, email, pass)
+    .then(() => window.location.href = "home.html")
+    .catch(err => alert("Login gagal: " + err.message));
 }
 
-// 🔹 Login
-const loginForm = document.getElementById("loginForm");
-if (loginForm) {
-  loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "home.html";
-    } catch (error) {
-      alert(error.message);
-    }
-  });
-}
-
-// 🔹 Logout
-const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", async () => {
-    await signOut(auth);
-    window.location.href = "index.html";
-  });
-}
-
-// 🔹 Proteksi Home
-if (window.location.pathname.includes("home.html")) {
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      window.location.href = "index.html";
-    }
-  });
+window.register = function () {
+  const email = document.getElementById("regEmail").value;
+  const pass = document.getElementById("regPassword").value;
+  createUserWithEmailAndPassword(window.auth, email, pass)
+    .then(() => window.location.href = "home.html")
+    .catch(err => alert("Register gagal: " + err.message));
 }

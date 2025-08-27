@@ -3,32 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Chatz</title>
+  <title>Register - BebekChating</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <h1>Register</h1>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="password" placeholder="Password">
-    <button id="registerBtn">Daftar</button>
-    <p>Sudah punya akun? <a href="login.html">Login</a></p>
-  </main>
+  <div class="content">
+    <div class="card">
+      <h2>Register</h2>
+      <input type="email" id="regEmail" placeholder="Email"><br><br>
+      <input type="password" id="regPassword" placeholder="Password"><br><br>
+      <button class="btn" onclick="register()">Register</button>
+      <p>Sudah punya akun? <a href="index.html">Login</a></p>
+    </div>
+  </div>
 
-  <script type="module">
-    import { auth, createUserWithEmailAndPassword } from "./firebase.js";
-
-    document.getElementById("registerBtn").addEventListener("click", () => {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          alert("Registrasi berhasil, silakan login!");
-          window.location.href = "login.html";
-        })
-        .catch(err => alert(err.message));
-    });
-  </script>
+  <script src="firebase.js" type="module"></script>
+  <script src="script.js" type="module"></script>
 </body>
 </html>

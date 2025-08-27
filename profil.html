@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil - Chatz</title>
+  <title>Profil - BebekChating</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,30 +13,22 @@
       <a href="profil.html" class="active">Profil</a>
       <a href="pesan.html">Pesan</a>
       <a href="notifikasi.html">Notifikasi</a>
-      <a href="#" id="logoutBtn">Logout</a>
+      <a href="logout.html">Logout</a>
     </div>
   </nav>
 
-  <main class="container">
-    <h1>Profil Saya</h1>
-    <p><strong>Email:</strong> <span id="userEmail"></span></p>
-  </main>
+  <div class="content">
+    <div class="card">
+      <h2>Profil Saya</h2>
+      <img src="https://via.placeholder.com/120" style="border-radius:50%;margin:15px 0;">
+      <p><strong>Nama:</strong> User</p>
+      <p><strong>Email:</strong> (otomatis dari Firebase)</p>
+      <button class="btn">Edit Profil</button>
+    </div>
+  </div>
 
-  <script type="module">
-    import { auth, signOut } from "./firebase.js";
-    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-
-    onAuthStateChanged(auth, user => {
-      if (user) {
-        document.getElementById("userEmail").innerText = user.email;
-      } else {
-        window.location.href = "login.html";
-      }
-    });
-
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      signOut(auth).then(() => window.location.href = "login.html");
-    });
-  </script>
+  <footer class="footer">
+    <p>&copy; 2025 BebekChating</p>
+  </footer>
 </body>
 </html>

@@ -3,32 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Chatz</title>
+  <title>Beranda - BebekChating</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-links">
       <a href="home.html" class="active">Beranda</a>
       <a href="profil.html">Profil</a>
       <a href="pesan.html">Pesan</a>
       <a href="notifikasi.html">Notifikasi</a>
-      <a href="#" id="logoutBtn">Logout</a>
+      <a href="logout.html">Logout</a>
     </div>
   </nav>
 
-  <main class="container">
-    <h1>Selamat Datang di Chatz</h1>
-    <p>Kamu berhasil login dengan Firebase Authentication 🚀</p>
-  </main>
+  <div class="content">
+    <div class="card">
+      <h2>Selamat Datang di BebekChating 🦆</h2>
+      <p>Chatting modern dengan tema biru-ungu!</p>
+    </div>
+  </div>
 
-  <script type="module">
-    import { auth, signOut } from "./firebase.js";
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      signOut(auth).then(() => {
-        window.location.href = "login.html";
-      });
-    });
-  </script>
+  <footer class="footer">
+    <p>&copy; 2025 BebekChating</p>
+  </footer>
 </body>
 </html>
