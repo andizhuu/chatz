@@ -18,29 +18,24 @@ body {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: rgba(0,0,0,0.3);
-  padding: 15px 30px;
+  padding: 10px 15px;
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 .nav-links li a {
+  font-size: 0.9rem; /* kecilin font */
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -64,7 +59,7 @@ body {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 15px;
 }
 
@@ -77,12 +72,19 @@ h1 {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: nowrap;
     justify-content: center;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+}
+
+/* Mode PC: izinkan zoom */
+@media (min-width: 1024px) {
+  meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1.0";
   }
 }
