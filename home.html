@@ -2,29 +2,27 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatz - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Home - Chatz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Chatz</div>
     <ul class="nav-links">
       <li><a href="home.html" class="active">Beranda</a></li>
       <li><a href="profil.html">Profil</a></li>
-      <li><a href="pesan.html">Pesan</a></li>
-      <li><a href="notifikasi.html">Notifikasi</a></li>
+      <li><a href="#">Pesan</a></li>
+      <li><a href="#">Notifikasi</a></li>
       <li><a href="#" id="logoutBtn">Logout</a></li>
     </ul>
   </nav>
 
-  <!-- Konten utama -->
-  <main class="container">
+  <div class="container">
     <h1>Selamat Datang di <span class="highlight">Chatz</span></h1>
-    <p class="subtitle">Tempat ngobrol seru dengan teman dan komunitasmu ✨</p>
+    <p class="subtitle">Tempat ngobrol seru dengan teman dan komunitasmu</p>
 
-    <section class="cards">
+    <div class="cards">
       <div class="card">
         <h3>👤 Profil</h3>
         <p>Atur informasi akun dan data dirimu di sini.</p>
@@ -33,40 +31,19 @@
       <div class="card">
         <h3>💬 Pesan</h3>
         <p>Kirim dan terima pesan pribadi dengan teman.</p>
-        <a href="pesan.html" class="btn">Buka Pesan</a>
+        <a href="#" class="btn">Buka Pesan</a>
       </div>
       <div class="card">
         <h3>🔔 Notifikasi</h3>
         <p>Cek update terbaru dan notifikasi akunmu.</p>
-        <a href="notifikasi.html" class="btn">Lihat Notifikasi</a>
+        <a href="#" class="btn">Lihat Notifikasi</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
-  <!-- Script Firebase Auth -->
   <script type="module">
-    import { auth } from "./firebase.js";
-    import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-
-    const logoutBtn = document.getElementById("logoutBtn");
-
-    // Logout saat tombol ditekan
-    logoutBtn.addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-        window.location.href = "index.html"; // arahkan ke halaman login
-      } catch (error) {
-        console.error("Logout gagal:", error.message);
-        alert("Gagal logout: " + error.message);
-      }
-    });
-
-    // Jika user tidak login, redirect ke index.html
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.href = "index.html";
-      }
-    });
+    import { logout } from "./app.js";
+    document.getElementById("logoutBtn").addEventListener("click", logout);
   </script>
 </body>
 </html>

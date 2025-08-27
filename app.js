@@ -1,38 +1,26 @@
 // app.js
-import { auth } from "./firebase.js";
-import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { 
+  auth, 
+} from "./firebase.js";
+import { 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  signOut 
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// 🔹 cek status login
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    // kalau belum login, kembali ke halaman login
-    if (!window.location.pathname.includes("index.html") &&
-        !window.location.pathname.includes("register.html")) {
-      window.location.href = "index.html";
-    }
-  } else {
-    // kalau user ada → isi profil (kalau di profil.html)
-    if (document.getElementById("userName")) {
-      document.getElementById("userName").textContent = user.displayName || "Tanpa Nama";
-      document.getElementById("userEmail").textContent = user.email;
+// LOGIN
+export function login(email, password) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
 
-      const userPhoto = document.getElementById("userPhoto");
-      if (user.photoURL) {
-        userPhoto.src = user.photoURL;
-      }
-    }
-  }
-});
+// REGISTER
+export function register(email, password) {
+  return createUserWithEmailAndPassword(auth, email, password);
+}
 
-// 🔹 tombol Logout
-const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", async () => {
-    try {
-      await signOut(auth);
-      window.location.href = "index.html";
-    } catch (err) {
-      alert("Gagal logout: " + err.message);
-    }
+// LOGOUT
+export function logout() {
+  return signOut(auth).then(() => {
+    window.location.href = "index.html";
   });
 }

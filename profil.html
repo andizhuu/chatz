@@ -2,32 +2,30 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Profil - Chatz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
+    <div class="logo">Chatz</div>
     <ul class="nav-links">
       <li><a href="home.html">Beranda</a></li>
       <li><a href="profil.html" class="active">Profil</a></li>
-      <li><a href="pesan.html">Pesan</a></li>
-      <li><a href="notifikasi.html">Notifikasi</a></li>
+      <li><a href="#">Pesan</a></li>
+      <li><a href="#">Notifikasi</a></li>
       <li><a href="#" id="logoutBtn">Logout</a></li>
     </ul>
   </nav>
 
-  <!-- Konten Profil -->
-  <main class="content">
-    <h1>Profil Saya</h1>
-    <img id="profilePicture" src="" alt="Foto Profil" class="profile-img">
-    <p><strong>Nama:</strong> <span id="displayName">Loading...</span></p>
-    <p><strong>Email:</strong> <span id="email">Loading...</span></p>
-    <button id="editProfileBtn">Edit Profil</button>
-  </main>
+  <div class="container">
+    <h1>Profil Pengguna</h1>
+    <p>Informasi akunmu akan tampil di sini.</p>
+  </div>
 
-  <script src="firebase.js"></script>
-  <script src="app.js"></script>
+  <script type="module">
+    import { logout } from "./app.js";
+    document.getElementById("logoutBtn").addEventListener("click", logout);
+  </script>
 </body>
 </html>
