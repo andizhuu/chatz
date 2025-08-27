@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatz - Home</title>
+  <title>Home - BebekChating</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="nav-container">
-      <h1 class="logo">Chatz</h1>
-      <ul class="nav-links">
-        <li><a href="home.html">Beranda</a></li>
-        <li><a href="profil.html">Profil</a></li>
-        <li><a href="#" id="logoutBtn">Logout</a></li>
-      </ul>
+    <div class="logo">BebekChating</div>
+    <div class="nav-links">
+      <a href="home.html" class="active">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="#" id="logoutBtn">Logout</a>
     </div>
   </nav>
 
   <!-- Content -->
-  <main class="content">
-    <h2>Selamat Datang di <span class="highlight">Chatz 💬</span></h2>
-    <p>Silakan pilih menu di atas.</p>
-  </main>
+  <div class="content">
+    <div class="card">
+      <h2>Selamat Datang di BebekChating 🦆</h2>
+      <p>Kamu berhasil login dengan akun Firebase!</p>
+    </div>
+  </div>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="firebase.js"></script>
-  <script src="app.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 BebekChating. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

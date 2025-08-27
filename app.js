@@ -1,38 +1,38 @@
 // app.js
-// Pastikan firebase.js sudah dimuat lebih dulu di HTML
+import { auth } from "./firebase.js";
+import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
-// --- REGISTER ---
-document.getElementById("registerForm")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("registerEmail").value;
-  const password = document.getElementById("registerPassword").value;
+// 🔹 cek status login
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    // kalau belum login, kembali ke halaman login
+    if (!window.location.pathname.includes("index.html") &&
+        !window.location.pathname.includes("register.html")) {
+      window.location.href = "index.html";
+    }
+  } else {
+    // kalau user ada → isi profil (kalau di profil.html)
+    if (document.getElementById("userName")) {
+      document.getElementById("userName").textContent = user.displayName || "Tanpa Nama";
+      document.getElementById("userEmail").textContent = user.email;
 
-  auth.createUserWithEmailAndPassword(email, password)
-    .then(userCredential => {
-      alert("Registrasi berhasil!");
-      window.location.href = "home.html";
-    })
-    .catch(error => alert(error.message));
+      const userPhoto = document.getElementById("userPhoto");
+      if (user.photoURL) {
+        userPhoto.src = user.photoURL;
+      }
+    }
+  }
 });
 
-// --- LOGIN ---
-document.getElementById("loginForm")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-
-  auth.signInWithEmailAndPassword(email, password)
-    .then(userCredential => {
-      alert("Login berhasil!");
-      window.location.href = "home.html";
-    })
-    .catch(error => alert(error.message));
-});
-
-// --- LOGOUT ---
-function logout() {
-  auth.signOut().then(() => {
-    window.location.href = "index.html"; // kembali ke login
+// 🔹 tombol Logout
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    try {
+      await signOut(auth);
+      window.location.href = "index.html";
+    } catch (err) {
+      alert("Gagal logout: " + err.message);
+    }
   });
 }
-window.logout = logout; // biar bisa dipanggil dari tombol di HTML

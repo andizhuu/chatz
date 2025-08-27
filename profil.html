@@ -3,25 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BebekChating - Profil</title>
+  <title>Profil - BebekChating</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navbar -->
   <nav class="navbar">
-    <a href="home.html">Beranda</a>
-    <a href="profil.html" class="active">Profil</a>
-    <a href="#" onclick="logout()">Logout</a>
+    <div class="logo">BebekChating</div>
+    <div class="nav-links">
+      <a href="home.html">Beranda</a>
+      <a href="profil.html" class="active">Profil</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </div>
   </nav>
 
+  <!-- Content -->
   <div class="content">
     <div class="card">
       <h2>Profil Saya</h2>
-      <img id="userPhoto" src="https://via.placeholder.com/120" alt="Foto Profil" style="border-radius:50%">
-      <p><strong>Email:</strong> <span id="userEmail">Memuat...</span></p>
-      <p><strong>Bergabung:</strong> <span id="userCreated">-</span></p>
+      <img id="userPhoto" src="https://via.placeholder.com/120" alt="Foto Profil" style="border-radius: 50%; margin:15px 0;">
+      <p><strong>Nama:</strong> <span id="userName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+      <button class="btn" onclick="editProfil()">Edit Profil</button>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 BebekChating. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="firebase.js"></script>
   <script type="module" src="app.js"></script>
+
+  <script>
+    function editProfil() {
+      alert("Fitur edit profil masih dalam pengembangan 🚀");
+    }
+  </script>
 </body>
 </html>
